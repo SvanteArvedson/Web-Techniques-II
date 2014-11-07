@@ -1,5 +1,7 @@
 <?php
 
+namespace helpers;
+
 /**
  * Class for autoloading all php files
  * @author Svante Arvedson 
@@ -37,7 +39,7 @@ class Autoload {
                 } else {
                     $path_parts = pathinfo($path);
                     // Only paths to php files is stored
-                    if ($path_parts['extension'] === "php") {
+                    if (@$path_parts['extension'] === "php") {
                         $ret[] = $folder . DIRECTORY_SEPARATOR . $path;
                     }
                 }

@@ -2,7 +2,14 @@
 
 require_once dirname(__FILE__) . "/src/helpers/Autoload.php";
 
-$autoload = new Autoload();
+// Requires all classes
+$autoload = new \helpers\Autoload();
 $autoload -> loadClasses();
 
-var_dump("Scriptet exekverades");
+// Sets configuration to swedish locals
+$configure = new \helpers\Configure();
+$configure -> setLocals();
+
+// Runs application
+$controller = new \controllers\Controller();
+$controller -> doAction();
