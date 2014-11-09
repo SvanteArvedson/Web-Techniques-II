@@ -9,6 +9,7 @@ $autoload -> loadClasses();
 // Sets configuration to swedish locals
 $configure = new \helpers\Configure();
 $configure -> setLocals();
+$configure -> configurePHP();
 
 // Runs application
 $controller = new \controllers\Controller();

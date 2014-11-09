@@ -17,7 +17,7 @@ class Controller {
         
         switch ($view -> getAction()) {
             case null :
-                $this -> displayPage();
+                $this -> displayPage($view);
                 break;
             case \views\Action::NEW_SCRAPING :
                 die("Ny skrapning");
@@ -32,7 +32,7 @@ class Controller {
      * Checks if a new scraping should be done
      * Displays information about last scraping
      */
-    private function displayPage() {
+    private function displayPage(\views\View $view) {
         // TODO: Check cache
         $model = new \models\LaborationModel();
         $model -> doScraping();

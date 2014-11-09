@@ -30,7 +30,7 @@ class Course {
     /**
      * @var $timeFotLatestPost mixed Timestamp for latest blog post
      */
-    private $timeFotLatestPost;
+    private $timeForLatestPost;
 
     /**
      * Constructor function
@@ -41,13 +41,11 @@ class Course {
      * @param $description String
      * @param $timeFotLatestPost Mixed
      */
-    public function __construct($name = 'no information', $url = 'no information', 
-                                $code = 'no information', $description = 'no information', 
-                                $timeFotLatestPost = 'no information') {
+    public function __construct($name, $url, $code, $description, $timeForLatestPost) {
         $this -> name = $name;
         $this -> url = $url;
         $this -> code = $code;
         $this -> description = $description;
-        $this -> timeFotLatestPost = $timeFotLatestPost;
+        $this -> timeForLatestPost = $timeForLatestPost;
     }
 }
