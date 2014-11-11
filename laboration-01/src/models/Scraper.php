@@ -2,16 +2,28 @@
 
 namespace models;
 
+/**
+ * Responsible for scraping the webpages
+ * 
+ * @author Svante Arvedson
+ */
 class Scraper {
     
+    /**
+     * @var $domain String domain name for website to scrape
+     */
     private static $domain = "https://coursepress.lnu.se";
     
+    /**
+     * Scrapes webpages and collects information
+     * 
+     * @return \models\ScrapeResult A object created with the collected information
+     */
     public function scrape() {
         $courses = array();
-        
         $doc = $this -> getCurlRequest(self::$domain . "/kurser/");
         
-        // Gets all links to courses
+        // Gets links to all courses
         $courseURLs = $this -> getCourseURLs($doc);
         
         // Call each URL and create course object
@@ -25,6 +37,12 @@ class Scraper {
         return new ScrapeResult(time(), count($courses), $courses);
     }
     
+    /**
+     * Private helper function for executing an CURL request
+     * 
+     * @param $url String URL to execute
+     * @return \DomDocument Respons from curl request
+     */
     private function getCurlRequest($url) {
         $request = curl_init();
 
@@ -45,6 +63,13 @@ class Scraper {
         return $doc;
     }
     
+    /**
+     * Private helper function for extracting course information from a DomDocument
+     * If the information isn't found, property value is "no information"
+     * 
+     * @param $domDoc \DomDocument
+     * @return \models\Course A course object
+     */
     private function getCourse($domDoc) {
         $xpath = new \DOMXPath($domDoc);
         
@@ -101,11 +126,23 @@ class Scraper {
         
         return new Course($courseName, $courseURL, $courseCode, $courseDesc, $courseLastPostTitle, $courseLastPostWriter, $courseTimeLastPost);
     }
-
+    
+    /**
+     * Private helper function for controlling nodeList
+     * 
+     * @param $nodeList \NodeList
+     * @return boolean
+     */
     private function checkNodeList($nodeList) {
         return ($nodeList != false && $nodeList -> length != 0) ? true : false; 
     }
     
+    /**
+     * Private helper function for extracting course URLs from a DomDocument
+     * 
+     * @param $domDoc \DomDocument
+     * @return array An array with all course URLs
+     */
     private function getCourseURLs($domDoc) {
         $ret = array();
         

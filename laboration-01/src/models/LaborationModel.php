@@ -2,6 +2,11 @@
 
 namespace models;
 
+/**
+ * Facade class for namespace models
+ * 
+ * @author Svante Arvedson
+ */
 class LaborationModel {
     
     /**
@@ -9,31 +14,45 @@ class LaborationModel {
      */
     private static $cacheLength = 86400;
     
+    /**
+     * @var $scraper /models/Scraper
+     */
     private $scraper;
-    private $repository;
-    private $scrapeResult;
     
+    /**
+     * @var $repository /models/Repository
+     */
+    private $repository;
+    
+    /**
+     * Constructor function
+     */
     public function __construct() {
         $this -> scraper = new Scraper();
         $this -> repository = new Repository();
-        $this -> scrapeResult = $this -> repository -> getScrapeResult();
-        if ($this -> scrapeResult == null) {
-            $this -> doScraping();
-        }
     }
     
+    /**
+     * Performe a scraping and saves the result
+     */
     public function doScraping() {
         $scrapeResult = $this -> scraper -> scrape();
         $this -> repository -> saveScrapeResult($scrapeResult);
-        $this -> scrapeResult = $scrapeResult;
     }
     
+    /**
+     * Returns a ScrapeResult, performs a new scraping if needed
+     * 
+     * @return /models/ScrapeResult
+     */
     public function getScrapeResult() {
-        // caching for one hour
-        if ($this -> scrapeResult -> getTimeLastScraping() < time() - self::$cacheLength) {
-            $this -> doScraping();
-        }
+        $scrapeResult = $this -> repository -> getScrapeResult();
 
-        return $this -> scrapeResult;
+        if ($scrapeResult == null || $scrapeResult -> getTimeLastScraping() < time() - self::$cacheLength) {
+            $this -> doScraping();
+            $scrapeResult = $this -> repository -> getScrapeResult();
+        }
+        
+        return $scrapeResult;
     }
 }

@@ -33,13 +33,13 @@ class Course {
     private $latestPost;
 
     /**
-     * Constructor function
-     *
      * @param $name String
      * @param $url String
      * @param $code String
      * @param $description String
-     * @param $timeForLatestPost Mixed
+     * @param $postTitle String
+     * @param $postWriter String
+     * @param $postTime String
      */
     public function __construct($name, $url, $code, $description, $postTitle, $postWriter, $postTime) {
         $this -> name = $name;
@@ -49,6 +49,18 @@ class Course {
         $this -> latestPost = new Post($postTitle, $postWriter, $postTime);
     }
     
+    /**
+     * @return String $this->url
+     */
+    public function getUrl() {
+        return $this -> url;
+    }
+    
+    /**
+     * Return an array with all properties and their values
+     * 
+     * @return array
+     */
     public function toArray() {
         return array(
             "name" => $this -> name,

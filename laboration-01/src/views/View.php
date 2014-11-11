@@ -16,6 +16,9 @@ class View {
         return isset($_GET['action']) ? $_GET['action'] : null;
     }
     
+    /**
+     * Redirects request fo front page
+     */
     public function redirectToFront() {
         header("Location: " . $_SERVER['PHP_SELF']);
         die();

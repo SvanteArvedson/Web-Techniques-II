@@ -10,7 +10,7 @@ namespace controllers;
 class Controller {
     
     /**
-     * Checks GET-parameters and runs suitable action-method
+     * Check GET-parameters and run action-method
      */
     public function doAction() {
         $view = new \views\View();
@@ -29,8 +29,9 @@ class Controller {
     }
     
     /**
-     * Checks if a new scraping should be done
      * Displays information about last scraping
+     * 
+     * @param $view \views\View
      */
     private function displayPage(\views\View $view) {
         $model = new \models\LaborationModel();
@@ -39,6 +40,11 @@ class Controller {
         $view -> display($viewModel);
     }
     
+    /**
+     * Performes a new scraping
+     * 
+     * @param $view \views\View
+     */
     private function doNewScraping(\views\View $view) {
         $model = new \models\LaborationModel();
         $model -> doScraping();

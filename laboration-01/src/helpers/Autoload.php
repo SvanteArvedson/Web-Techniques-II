@@ -3,13 +3,14 @@
 namespace helpers;
 
 /**
- * Class for autoloading all php files
+ * Class for autoloading all php classes
+ * 
  * @author Svante Arvedson 
  */
 class Autoload {
 
     /**
-     * Requires all classes in src-folder
+     * Loads all classes in src-folder
      */
     public function loadClasses() {
         $folder = dirname(__FILE__) . "/../";
@@ -18,13 +19,10 @@ class Autoload {
     }
     
     /**
-     * Scans src-folder for php files
-     * 
-     * Algorithm created with inspiration from comments on
-     * http://php.net/manual/en/function.scandir.php
+     * Private helper function scans src folder for php files
      *
      * @param $folder String A path to folder to scan
-     * @return array A array with paths to all classes
+     * @return array A array with paths to all files
      */
     private function getDirectories($folder) {
         $ret = array();
@@ -33,12 +31,11 @@ class Autoload {
         foreach ($paths as $path) {
             if (!in_array($path, array(".", ".."))) {
                 if (is_dir($folder . $path)) {
-                    // If path goes to another directory, 
-                    // the same function is called recursively
+                    // If path goes to another directory
                     $ret[] = $this -> getDirectories($folder . $path);
                 } else {
                     $path_parts = pathinfo($path);
-                    // Only paths to php files is stored
+                    // Only paths to php files
                     if (@$path_parts['extension'] === "php") {
                         $ret[] = $folder . DIRECTORY_SEPARATOR . $path;
                     }
@@ -57,8 +54,7 @@ class Autoload {
     private function load($paths) {
         foreach ($paths as $path) {
             if (is_array($path)) {
-                // If path goes to another directory, 
-                // the same function is called recursively
+                // If path goes to another directory
                 $this -> load($path);
             } else {
                 require_once($path);
