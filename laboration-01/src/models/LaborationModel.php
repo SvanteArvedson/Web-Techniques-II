@@ -4,6 +4,11 @@ namespace models;
 
 class LaborationModel {
     
+    /**
+     * @var $cacheLength int Length of cache in seconds 86400 = 24 hours
+     */
+    private static $cacheLength = 86400;
+    
     private $scraper;
     private $repository;
     private $scrapeResult;
@@ -24,6 +29,11 @@ class LaborationModel {
     }
     
     public function getScrapeResult() {
+        // caching for one hour
+        if ($this -> scrapeResult -> getTimeLastScraping() < time() - self::$cacheLength) {
+            $this -> doScraping();
+        }
+
         return $this -> scrapeResult;
     }
 }

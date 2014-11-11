@@ -28,12 +28,12 @@ class Scraper {
     private function getCurlRequest($url) {
         $request = curl_init();
 
-        //TODO: Identifiera dig
         $options = array(CURLOPT_URL => $url, 
                         CURLOPT_RETURNTRANSFER => true, 
                         CURLOPT_FOLLOWLOCATION => true, 
                         CURLOPT_AUTOREFERER => true, 
-                        CURLOPT_SSL_VERIFYPEER => false);
+                        CURLOPT_SSL_VERIFYPEER => false,
+                        CURLOPT_USERAGENT => "ba222ec, IDV449 - laboration 01");
         curl_setopt_array($request, $options);
 
         $result = curl_exec($request);
@@ -75,17 +75,31 @@ class Scraper {
             $courseDesc = "no information";
         }
 
-        // Gets timestamp for last blog post
-        $courseTimeLastPostNode = $xpath -> query('//article[contains(concat(" ", @class, " "), " hentry ")][2]/header/p');
+        // Gets last blog post information
+        $courseTimeLastPostHeaderNode = $xpath -> query('//article[contains(concat(" ", @class, " "), " hentry ")][1]/header/h1/a');
+        if ($this -> checkNodeList($courseTimeLastPostHeaderNode)) {
+            $courseLastPostTitle = $courseTimeLastPostHeaderNode -> item(0) -> nodeValue;
+        } else {
+            $courseLastPostTitle = "no information";
+        }
+        
+        $courseTimeLastPostWriterNode = $xpath -> query('//article[contains(concat(" ", @class, " "), " hentry ")][1]/header/p/strong');
+        if ($this -> checkNodeList($courseTimeLastPostWriterNode)) {
+            $courseLastPostWriter = $courseTimeLastPostWriterNode -> item(0) -> nodeValue;
+        } else {
+            $courseLastPostWriter = "no information";
+        }
+        
+        $courseTimeLastPostNode = $xpath -> query('//article[contains(concat(" ", @class, " "), " hentry ")][1]/header/p');
         if ($this -> checkNodeList($courseTimeLastPostNode)) {
             $nodeVal = $courseTimeLastPostNode -> item(0) -> nodeValue;
             preg_match('/\d{4}-\d{2}-\d{2}\s{1}\d{2}:\d{2}/', $nodeVal, $match);
-            $courseTimeLastPost = strtotime($match[0]);
+            $courseTimeLastPost = $match[0];
         } else {
             $courseTimeLastPost = "no information";
         }
         
-        return new Course($courseName, $courseURL, $courseCode, $courseDesc, $courseTimeLastPost);
+        return new Course($courseName, $courseURL, $courseCode, $courseDesc, $courseLastPostTitle, $courseLastPostWriter, $courseTimeLastPost);
     }
 
     private function checkNodeList($nodeList) {

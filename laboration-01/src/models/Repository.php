@@ -14,7 +14,8 @@ class Repository {
 
             $courses = array();
             foreach ($savedResult -> courses as $course) {
-                $courses[] = new Course($course -> name, $course -> url, $course -> code, $course -> description, $course -> timeForLatestPost);
+                $lastestPost = $course ->  latestPost;
+                $courses[] = new Course($course -> name, $course -> url, $course -> code, $course -> description, $lastestPost -> title, $lastestPost -> writer, $lastestPost -> timeForPost);
             }
             
             $ret = new ScrapeResult($savedResult -> timeLastScraping, $savedResult -> numberOfCourses, $courses);

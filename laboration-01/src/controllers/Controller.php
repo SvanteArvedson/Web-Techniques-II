@@ -33,7 +33,6 @@ class Controller {
      * Displays information about last scraping
      */
     private function displayPage(\views\View $view) {
-        // TODO: Check cache
         $model = new \models\LaborationModel();
 
         $viewModel = new \models\ViewModel($model -> getScrapeResult());

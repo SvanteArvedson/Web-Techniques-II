@@ -28,9 +28,9 @@ class Course {
     private $description;
     
     /**
-     * @var $timeFotLatestPost mixed Timestamp for latest blog post
+     * @var $latestPost \models\Post Latest blog post
      */
-    private $timeForLatestPost;
+    private $latestPost;
 
     /**
      * Constructor function
@@ -41,12 +41,12 @@ class Course {
      * @param $description String
      * @param $timeForLatestPost Mixed
      */
-    public function __construct($name, $url, $code, $description, $timeForLatestPost) {
+    public function __construct($name, $url, $code, $description, $postTitle, $postWriter, $postTime) {
         $this -> name = $name;
         $this -> url = $url;
         $this -> code = $code;
         $this -> description = $description;
-        $this -> timeForLatestPost = $timeForLatestPost;
+        $this -> latestPost = new Post($postTitle, $postWriter, $postTime);
     }
     
     public function toArray() {
@@ -55,7 +55,7 @@ class Course {
             "url" => $this -> url,
             "code" => $this -> code,
             "description" => $this -> description,
-            "timeForLatestPost" => $this -> timeForLatestPost
+            "latestPost" => $this -> latestPost -> toArray()
         );
     }
 }
