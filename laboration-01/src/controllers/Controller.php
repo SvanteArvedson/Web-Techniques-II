@@ -20,7 +20,7 @@ class Controller {
                 $this -> displayPage($view);
                 break;
             case \views\Action::NEW_SCRAPING :
-                die("Ny skrapning");
+                $this -> doNewScraping($view);
                 break;
             default:
                 die("Ogiltig URL");
@@ -35,9 +35,15 @@ class Controller {
     private function displayPage(\views\View $view) {
         // TODO: Check cache
         $model = new \models\LaborationModel();
+
+        $viewModel = new \models\ViewModel($model -> getScrapeResult());
+        $view -> display($viewModel);
+    }
+    
+    private function doNewScraping(\views\View $view) {
+        $model = new \models\LaborationModel();
         $model -> doScraping();
         
-        $viewModel = new \models\ViewModel();
-        $view -> display($viewModel);
+        $view -> redirectToFront();
     }
 }

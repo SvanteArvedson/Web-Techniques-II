@@ -26,7 +26,7 @@
                 <h2>Senaste skrapningen</h2>
                 <p><?php echo date("Y-m-d H:i:s", $model -> getTimeLastScraping()); ?></p>
                 <h2>Resultat</h2>
-                <p>Klicka <a href="<?php echo $model->getPathToResult(); ?>" target="_blank">här</a> för att ladda ner resultatet</p>
+                <p>Klicka <a href="<?php echo $model->getPathToResultFile(); ?>" target="_blank">här</a> för att ladda ner resultatet</p>
             </div>
         </div>
     </body>

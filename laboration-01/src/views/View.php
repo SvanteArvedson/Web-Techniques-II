@@ -16,6 +16,11 @@ class View {
         return isset($_GET['action']) ? $_GET['action'] : null;
     }
     
+    public function redirectToFront() {
+        header("Location: " . $_SERVER['PHP_SELF']);
+        die();
+    }
+    
     /**
      * Displays the HTML page
      * 

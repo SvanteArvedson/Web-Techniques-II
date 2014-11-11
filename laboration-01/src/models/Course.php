@@ -39,7 +39,7 @@ class Course {
      * @param $url String
      * @param $code String
      * @param $description String
-     * @param $timeFotLatestPost Mixed
+     * @param $timeForLatestPost Mixed
      */
     public function __construct($name, $url, $code, $description, $timeForLatestPost) {
         $this -> name = $name;
@@ -47,5 +47,15 @@ class Course {
         $this -> code = $code;
         $this -> description = $description;
         $this -> timeForLatestPost = $timeForLatestPost;
+    }
+    
+    public function toArray() {
+        return array(
+            "name" => $this -> name,
+            "url" => $this -> url,
+            "code" => $this -> code,
+            "description" => $this -> description,
+            "timeForLatestPost" => $this -> timeForLatestPost
+        );
     }
 }

@@ -12,25 +12,19 @@ class ViewModel {
      */
     private $timeForLastScraping;
     
-    /**
-     * @var $pathToResult String URL to file with result of scraping
-     */
-    private $pathToResult;
-    
+    private $pathToResultFile;
+
     /**
      * Constructor function
      */
-    public function __construct() {
-        $this -> pathToResult = \settings\AppSettings::PATH_TO_RESULT_FILE;
+    public function __construct(\models\ScrapeResult $scrapeResult) {
         // TODO: Load time from result file
-        $this -> timeForLastScraping = time();
+        $this -> timeForLastScraping = $scrapeResult -> getTimeLastScraping();
+        $this -> pathToResultFile = dirname($_SERVER['PHP_SELF']) . "/courses.json";
     }
-    
-    /**
-     * @return String URL to file with result of scraping
-     */
-    public function getPathToResult() {
-        return $this -> pathToResult;
+
+    public function getPathToResultFile() {
+        return $this -> pathToResultFile;
     }
     
     /**
