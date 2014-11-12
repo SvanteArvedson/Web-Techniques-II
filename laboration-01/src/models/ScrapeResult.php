@@ -71,6 +71,6 @@ class ScrapeResult {
             "courses" => $courses
         );
         
-        return json_encode($array);
+        return json_encode($array, JSON_UNESCAPED_UNICODE);
     }
 }
