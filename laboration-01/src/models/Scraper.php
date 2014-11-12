@@ -56,6 +56,8 @@ class Scraper {
 
         $result = curl_exec($request);
         curl_close($request);
+        
+        $result = mb_convert_encoding($result, "HTML-ENTITIES", "UTF-8");
 
         $doc = new \DomDocument();
         @$doc -> loadHTML($result);
@@ -95,7 +97,7 @@ class Scraper {
         // Gets description
         $courseDescNode = $xpath -> query('//article[contains(concat(" ", @class, " "), " start-page ")]');
         if ($this -> checkNodeList($courseDescNode)) {
-            $courseDesc = preg_replace('/\s{2,}/', ' ', trim($courseDescNode -> item(0) -> nodeValue));
+            $courseDesc = preg_replace('/[\s]+/', ' ', trim($courseDescNode -> item(0) -> nodeValue));
         } else {
             $courseDesc = "no information";
         }
