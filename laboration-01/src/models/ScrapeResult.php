@@ -55,22 +55,20 @@ class ScrapeResult {
     }
     
     /**
-     * Creates a JSON-string storing properties and values of the object
+     * Return an array with all properties and their values
      * 
-     * @return String JSON-string
+     * @return array
      */
-    public function toJSON() {
+    public function toArray() {
         $courses = array();
         foreach ($this -> courses as $course) {
             $courses[] = $course -> toArray();
         }
         
-        $array = array (
+        return array (
             "timeLastScraping" => $this -> timeLastScraping,
             "numberOfCourses" => $this -> numberOfCourses,
             "courses" => $courses
         );
-        
-        return json_encode($array);
     }
 }

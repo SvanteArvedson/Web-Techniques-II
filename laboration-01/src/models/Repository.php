@@ -39,6 +39,6 @@ class Repository {
      * @param $scrapeResult \models\ScrapeResult Object to be saved
      */
     public function saveScrapeResult(\models\ScrapeResult $scrapeResult) {
-        file_put_contents($this -> filePath, $scrapeResult -> toJSON());
+        file_put_contents($this -> filePath, json_encode($scrapeResult -> toArray()));
     }
 }

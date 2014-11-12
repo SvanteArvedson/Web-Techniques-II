@@ -50,6 +50,13 @@ class Course {
     }
     
     /**
+     * @return String $this->name
+     */
+    public function getName() {
+        return $this -> name;
+    }
+    
+    /**
      * @return String $this->url
      */
     public function getUrl() {
@@ -69,5 +76,16 @@ class Course {
             "description" => $this -> description,
             "latestPost" => $this -> latestPost -> toArray()
         );
+    }
+
+    /**
+     * Compare two course objects. Used to sort courses by name property. Case insentitive
+     * 
+     * @param $a \models\Course
+     * @param $b \models\Course
+     * @return int <0 if $a is smaller than $b, >0 if $a is greater than $b, 0 if $a and $b are equal
+     */
+    public static function compareByName(\models\Course $a, \models\Course $b) {
+        return strcasecmp($a -> getName(), $b -> getName());
     }
 }

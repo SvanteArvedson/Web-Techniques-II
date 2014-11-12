@@ -33,6 +33,7 @@ class Scraper {
                 $courses[] = $this -> getCourse($courseDoc);
             }
         }
+        usort($courses, array("\models\Course", "compareByName"));
         
         return new ScrapeResult(time(), count($courses), $courses);
     }
