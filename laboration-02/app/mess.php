@@ -167,6 +167,7 @@ background-color: #F3FCE4;
 					MessageBoard.getMessages();
 				});
 			</script>
+			<script src="js/jquery-1.10.2.min.js"></script>
 			<script src="js/bootstrap.js"></script>
 	</body>
 	</html>

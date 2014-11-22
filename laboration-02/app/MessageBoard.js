@@ -12,10 +12,10 @@ var MessageBoard = {
             MessageBoard.messageArea = document.getElementById("messagearea");
     
             // Add eventhandlers    
-            document.getElementById("inputText").onfocus = function(e){ this.className = "focus"; }
-            document.getElementById("inputText").onblur = function(e){ this.className = "blur" }
-            document.getElementById("buttonSend").onclick = function(e) {MessageBoard.sendMessage(); return false;}
-            document.getElementById("buttonLogout").onclick = function(e) {MessageBoard.logout(); return false;}
+            document.getElementById("inputText").onfocus = function(e){ this.className = "focus"; };
+            document.getElementById("inputText").onblur = function(e){ this.className = "blur"; };
+            document.getElementById("buttonSend").onclick = function(e) {MessageBoard.sendMessage(); return false;};
+            document.getElementById("buttonLogout").onclick = function(e) {MessageBoard.logout(); return false;};
     
             MessageBoard.textField.onkeypress = function(e){ 
                                                     if(!e) var e = window.event;
@@ -25,7 +25,7 @@ var MessageBoard = {
                                                        
                                                         return false;
                                                     }
-                                                }
+                                               };
     
     },
     getMessages:function() {
@@ -90,7 +90,7 @@ var MessageBoard = {
         aTag.onclick = function(){
 			MessageBoard.showTime(messageID);
 			return false;			
-		}
+		};
         
         var imgClock = document.createElement("img");
         imgClock.src="pic/clock.png";
@@ -106,7 +106,7 @@ var MessageBoard = {
             
         // Time - Should fix on server!
         var spanDate = document.createElement("span");
-        spanDate.appendChild(document.createTextNode(MessageBoard.messages[messageID].getDateText()))
+        spanDate.appendChild(document.createTextNode(MessageBoard.messages[messageID].getDateText()));
 
         div.appendChild(spanDate);        
         
@@ -136,6 +136,6 @@ var MessageBoard = {
     logout: function() {
         window.location = "index.php";
     }
-}
+};
 
 window.onload = MessageBoard.init;

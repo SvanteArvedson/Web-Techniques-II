@@ -10,11 +10,10 @@ if(isset($u) && isset($p) && isUser($u, $p)) {
 	// set the session
 	sec_session_start();
 	$_SESSION['username'] = $u;
-	$_SESSION['login_string'] = hash('sha512', "123456" +$u);
+	$_SESSION['login_string'] = hash('sha512', "123456" + $u);
 	
 	header("Location: mess.php"); 
-}
-else {
+} else {
 	// To bad
 	header('HTTP/1.1 401 Unauthorized');
 	die("could not call");

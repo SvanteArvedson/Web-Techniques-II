@@ -13,10 +13,12 @@ if(isset($_GET['function'])) {
 		logout();
     } 
     elseif($_GET['function'] == 'add') {
-	    $name = $_GET["name"];
-		$message = $_GET["message"];
-		addToDB($message, $name);
-		header("Location: test/debug.php");
+        if (checkUser()) {
+    	    $name = $_GET["name"];
+    		$message = $_GET["message"];
+    		addToDB($message, $name);
+            header("Location: test/debug.php");
+        }
     }
     elseif($_GET['function'] == 'getMessages') {
   	   	echo(json_encode(getMessages()));

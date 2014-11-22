@@ -5,39 +5,41 @@
 */
 function addToDB($message, $user) {
 	$db = null;
-	
+
 	try {
 		$db = new PDO("sqlite:db.db");
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOEception $e) {
-		die("Something went wrong -> " .$e->getMessage());
+		die("Ett serverfel inträffade.");
 	}
 	
-	$q = "INSERT INTO messages (message, name) VALUES('$message', '$user')";
-	
-	try {
-		if(!$db->query($q)) {}
+    try {
+    	$q = "INSERT INTO messages (message, name) VALUES(?, ?)";
+    	$param = array($message, $user);
+        
+        $stm = $db->prepare($q);
+        $stm->execute($param);
 	}
 	catch(PDOException $e) {}
 	
-	$q = "SELECT * FROM users WHERE username = '" .$user ."'";
-	$result;
-	$stm;
-	try {
+    try {
+    	$q = "SELECT * FROM users WHERE username = ?";
+        $param = array($user);
+		
 		$stm = $db->prepare($q);
-		$stm->execute();
+		$stm->execute($param);
+        
 		$result = $stm->fetchAll();
 		if(!$result) {
 			return "Could not find the user";
 		}
 	}
 	catch(PDOException $e) {
-		echo("Error creating query: " .$e->getMessage());
+		echo("Ett serverfel inträffade.");
 		return false;
 	}
 	// Send the message back to the client
 	echo "Message saved by user: " .json_encode($result);
-	
 }
 

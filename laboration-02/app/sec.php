@@ -20,50 +20,51 @@ function checkUser() {
 		sec_session_start();
 	}
 
-	if(!isset($_SESSION["user"])) {header('HTTP/1.1 401 Unauthorized'); die();}
+	if(!isset($_SESSION["user"])) {header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");}
 
 	$user = getUser($_SESSION["user"]);
 	$un = $user[0]["username"];
 
 	if(isset($_SESSION['login_string'])) {
 		if($_SESSION['login_string'] !== hash('sha512', "123456" + $un) ) {
-			header('HTTP/1.1 401 Unauthorized'); die();
+			header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
 		}
 	}
 	else {
-		header('HTTP/1.1 401 Unauthorized'); die();
+		header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
 	}
 	return true;
 }
 
 function isUser($u, $p) {
-	$db = null;
+    $db = null;
 
 	try {
 		$db = new PDO("sqlite:db.db");
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOEception $e) {
-		die("Del -> " .$e->getMessage());
+		die("Ett serverfel inträffade.");
 	}
-	$q = "SELECT id FROM users WHERE username = '$u' AND password = '$p'";
 
-	$result;
-	$stm;
-	try {
+    try {
+    	$q = "SELECT id FROM users WHERE username = ? AND password = ?";
+        $param = array($u, $p);
+	
 		$stm = $db->prepare($q);
-		$stm->execute();
+		$stm->execute($param);
+        
 		$result = $stm->fetchAll();
-		if(!$result) {
-			return "Could not find the user";
-		}
+		if($result) {
+			return true;
+		} else {
+		    return false;
+		};
 	}
 	catch(PDOException $e) {
-		echo("Error creating query: " .$e->getMessage());
+		echo("Ett serverfel inträffade.");
 		return false;
 	}
-	return $result;
-	
 }
 
 function getUser($user) {
@@ -74,19 +75,20 @@ function getUser($user) {
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOEception $e) {
-		die("Del -> " .$e->getMessage());
+		die("Ett serverfel inträffade.");
 	}
-	$q = "SELECT * FROM users WHERE username = '$user'";
-
-	$result;
-	$stm;
-	try {
+	
+    try {
+    	$q = "SELECT * FROM users WHERE username = ?";
+        $param = array($user);
+    
 		$stm = $db->prepare($q);
-		$stm->execute();
+		$stm->execute($param);
+        
 		$result = $stm->fetchAll();
 	}
 	catch(PDOException $e) {
-		echo("Error creating query: " .$e->getMessage());
+		echo("Ett serverfel inträffade.");
 		return false;
 	}
 
@@ -94,7 +96,6 @@ function getUser($user) {
 }
 
 function logout() {
-
 	if(!session_id()) {
 		sec_session_start();
 	}

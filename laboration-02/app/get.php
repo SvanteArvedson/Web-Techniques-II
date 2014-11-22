@@ -9,7 +9,7 @@ function getMessages() {
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOEception $e) {
-		die("Del -> " .$e->getMessage());
+		die("Ett serverfel inträffade.");
 	}
 	
 	$q = "SELECT * FROM messages";
@@ -22,7 +22,7 @@ function getMessages() {
 		$result = $stm->fetchAll();
 	}
 	catch(PDOException $e) {
-		echo("Error creating query: " .$e->getMessage());
+		echo("Ett serverfel inträffade.");
 		return false;
 	}
 	
