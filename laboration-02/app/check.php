@@ -11,7 +11,7 @@ if(isset($u) && isset($p) && isUser($u, $p)) {
 	sec_session_start();
 	$_SESSION['username'] = $u;
 	$_SESSION['login_string'] = hash('sha512', "123456" + $u);
-	
+
 	header("Location: mess.php"); 
 } else {
 	// To bad

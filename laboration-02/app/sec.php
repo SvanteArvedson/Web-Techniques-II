@@ -1,7 +1,7 @@
 <?php
 
 /**
-Just som simple scripts for session handling
+Just some simple scripts for session handling
 */
 function sec_session_start() {
         $session_name = 'sec_session_id'; // Set a custom session name
@@ -20,9 +20,9 @@ function checkUser() {
 		sec_session_start();
 	}
 
-	if(!isset($_SESSION["user"])) {header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");}
+	if(!isset($_SESSION["username"])) {header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");}
 
-	$user = getUser($_SESSION["user"]);
+	$user = getUser($_SESSION["username"]);
 	$un = $user[0]["username"];
 
 	if(isset($_SESSION['login_string'])) {
@@ -33,6 +33,7 @@ function checkUser() {
 	else {
 		header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
 	}
+    
 	return true;
 }
 
@@ -48,18 +49,20 @@ function isUser($u, $p) {
 	}
 
     try {
-    	$q = "SELECT id FROM users WHERE username = ? AND password = ?";
-        $param = array($u, $p);
-	
-		$stm = $db->prepare($q);
-		$stm->execute($param);
+        $users = getUser($u);
         
-		$result = $stm->fetchAll();
-		if($result) {
-			return true;
-		} else {
-		    return false;
-		};
+        if ($users) {
+            $user = $users[0];
+            $cryptP = crypt($p, $user['password']);
+    
+            if ($cryptP === $user['password']) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
 	}
 	catch(PDOException $e) {
 		echo("Ett serverfel inträffade.");
@@ -103,3 +106,6 @@ function logout() {
 	header('Location: index.php');
 }
 
+function createSalt(){
+    return "_" . substr(md5(rand()), 0, 8);
+}

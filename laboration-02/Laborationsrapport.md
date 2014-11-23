@@ -34,7 +34,19 @@ som möjliggör en SQL-injection attack. Jag har lagat säkerhetshålet genom
 att parametrisera frågorna innan de körs.
 
 ###Lösenorden sparas i klartext i databasen
+I applikationen så sparas användarnas lösenord i klartext i databasen. Detta 
+är inte bra, det är lätt för hackare och andra att bryta sig in på 
+användarkonton om de skulle få tag på databasen. För att lösa problemet så har 
+jag lagt till fältet *salt* i databastabellen, jag har hashat de sparade 
+lösenorden tillsammans med ett unikt salt. Jag har skrivit om 
+inloggningsfunktionen så att den hämtar ut användarens uppgifter, hashar det 
+angivna lösenordet med saltet från databasen och jämför sedan det hashade 
+lösenordet med lösenordet som är lagrat i databasen.
 
 ###Man kan posta kod meddelandeformuläret
+Man kan posta kod i meddelandeformuläret och på så sätt exekvera egen kod i 
+applikationen. Detta kan utnyttjas av hackare för att utföra en injektion- 
+eller XSS-attack. Jag har löst problemet genom att strippa inläggen på taggar 
+innan de skickas in i databasen.
 
-###AJAX-input omvandlar inte HTML-specialtecken
+##Optimering

@@ -14,10 +14,9 @@ if(isset($_GET['function'])) {
     } 
     elseif($_GET['function'] == 'add') {
         if (checkUser()) {
-    	    $name = $_GET["name"];
-    		$message = $_GET["message"];
+    	    $name = strip_tags($_GET["name"]);
+    		$message = strip_tags($_GET["message"]);
     		addToDB($message, $name);
-            header("Location: test/debug.php");
         }
     }
     elseif($_GET['function'] == 'getMessages') {
