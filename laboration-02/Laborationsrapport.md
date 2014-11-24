@@ -60,6 +60,7 @@ gemensam fil döpt till *site.js*. Med detta har jag sparat ett HTTP-anrop.
 bakgrundsbild.
 + Jag har tagit bort attributet *background* på body-taggen i *mess.php*.
 + Jag har tagit bort onödiga script-taggar i *mess.php*.
++ Jag har tagit bort *bootstrap.min.js* från *index.php* och *mess.php*. Scriptet användes inte.
 
 ###Lägg till Expires och Cache-Controller i request-headern
 Jag har en apache-server som utvecklingsmiljö. Jag har skrivit en htaccess-fil 
