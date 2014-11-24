@@ -12,7 +12,7 @@ if(isset($u) && isset($p) && isUser($u, $p)) {
 	$_SESSION['username'] = $u;
 	$_SESSION['login_string'] = hash('sha512', "123456" + $u);
 
-	header("Location: mess.php"); 
+	header("Location: mess.php");
 } else {
 	// To bad
 	header('HTTP/1.1 401 Unauthorized');

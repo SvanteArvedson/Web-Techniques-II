@@ -50,3 +50,33 @@ eller XSS-attack. Jag har löst problemet genom att strippa inläggen på taggar
 innan de skickas in i databasen.
 
 ##Optimering
+Efter att mina ändringar så laddas sidan mess.php ca 1000 ms snabbare än före 
+ändringarna.
+
+###Minska anralet HTTP-requests
++ Jag har lagt koden i *MessageBoard.js* och *Message.js* i en 
+gemensam fil döpt till *site.js*. Med detta har jag sparat ett HTTP-anrop.
++ Jag har tagit bort css-raden i *mess.php* där bilden *b.jpg* begärs som 
+bakgrundsbild.
++ Jag har tagit bort attributet *background* på body-taggen i *mess.php*.
++ Jag har tagit bort onödiga script-taggar i *mess.php*.
+
+###Lägg till Expires och Cache-Controller i request-headern
+Jag har en apache-server som utvecklingsmiljö. Jag har skrivit en htaccess-fil 
+som lägger till *Expires* och *Cache-control* och som låter klienten spara 
+alla filer utom **html** och **json** i 10 år från anropet.
+
+###Lägg CSS-filerna i head-taggen
+Jag har flyttat alla css-filer till head-taggen i filerna *index.php* och *mess.php*.
+
+###Lägg JavaScript-filerna i längst ner i body-taggen
+Jag har flyttat alla js-filerna til botten av sidornas body-tagg.
+
+###Lägg all CSS och JavaScript i seperata filer
+Jag har flyttat all inline-kod till seperata filer (och minimerat dem).
+
+###Minimera CSS- och JavaScript-filer
+Jag har minimerat alla css- och js-filer.
+
+###Tag bort duplicerade js-filer
+Jag har tagit bort duplicerade filer från *mess.php*.
