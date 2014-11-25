@@ -8,7 +8,6 @@
     <title>Mezzy Labbage - Logga in</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/loginpage.min.css" rel="stylesheet" />
-		
   </head>
   <body>
     <div class="container">
