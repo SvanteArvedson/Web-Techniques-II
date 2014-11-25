@@ -42,7 +42,8 @@ var MessageBoard = {
 			for(var mess in data) {
 				var obj = data[mess];
 			    var text = obj.name +" said:\n" +obj.message;
-				var mess = new Message(text, new Date());
+			    var time = obj.timestamp != null ? new Date(obj.timestamp) : new Date();
+				var mess = new Message(text, time);
                 var messageID = MessageBoard.messages.push(mess)-1;
     
                 MessageBoard.renderMessage(messageID);

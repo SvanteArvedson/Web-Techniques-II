@@ -20,6 +20,8 @@ exempelvis utföra XSS-attacker. Jag har täckt till säkerhetshålet genom
 att innan et meddelande läggs till undersöka om användaren är inloggad 
 genom att använda funktionen *checkUser()* i filen *sec.php*.
 
+###Icke inloggade användare kan hämta ut meddelanden
+
 ###PDO's felmeddelanden ekas ut till klienten
 I klasserna *get.php*, *post.php* och *sec.php* så ekas PDO's felmeddelanden 
 ut till klienten. Detta är inte bra så det avslöjar information om 
@@ -88,3 +90,6 @@ Jag har minimerat alla css- och js-filer.
 
 ###Tag bort duplicerade js-filer
 Jag har tagit bort duplicerade filer från *mess.php*.
+
+##Long polling
+

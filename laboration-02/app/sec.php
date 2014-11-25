@@ -38,16 +38,6 @@ function checkUser() {
 }
 
 function isUser($u, $p) {
-    $db = null;
-
-	try {
-		$db = new PDO("sqlite:db.db");
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	}
-	catch(PDOEception $e) {
-		die("Ett serverfel inträffade.");
-	}
-
     try {
         $users = getUser($u);
         
@@ -71,8 +61,8 @@ function isUser($u, $p) {
 }
 
 function getUser($user) {
-	$db = null;
-
+    $db = null;
+    
 	try {
 		$db = new PDO("sqlite:db.db");
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -89,13 +79,18 @@ function getUser($user) {
 		$stm->execute($param);
         
 		$result = $stm->fetchAll();
+        
+        $db = null;
+        
+        return $result;
 	}
 	catch(PDOException $e) {
+	    $db = null;
 		echo("Ett serverfel inträffade.");
 		return false;
 	}
 
-	return $result;
+	
 }
 
 function logout() {

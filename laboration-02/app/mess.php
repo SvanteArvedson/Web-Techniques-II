@@ -30,10 +30,11 @@
 		</div>
 
 		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/site.min.js"></script>
+		<!--<script src="js/site.min.js"></script>-->
+		<script src="js/site.js"></script>
 		<script>
 			$(document).ready(function() {
-				MessageBoard.getMessages();
+				MessageBoard.getAllMessages();
 			});
 		</script>
 	</body>

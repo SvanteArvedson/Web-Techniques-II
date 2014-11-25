@@ -28,28 +28,52 @@ var MessageBoard = {
                                                };
     
     },
-    getMessages:function() {
-        console.log("INNE");
+    getAllMessages:function() {
         $.ajax({
 			type: "GET",
-			url: "functions.php",
-			data: {function: "getMessages"}
-		}).done(function(data) { // called when the AJAX call is ready
-						
-			data = JSON.parse(data);
-		
-			
-			for(var mess in data) {
-				var obj = data[mess];
-			    var text = obj.name +" said:\n" +obj.message;
-				var mess = new Message(text, new Date());
-                var messageID = MessageBoard.messages.push(mess)-1;
-    
-                MessageBoard.renderMessage(messageID);
-				
-			}
-			document.getElementById("nrOfMessages").innerHTML = MessageBoard.messages.length;
-			
+			url: "get.php",
+			data: {function: "getAllMessages"},
+			success: function(data) { // called when the AJAX call is ready
+				data = JSON.parse(data);
+				for(var mess in data) {
+					var obj = data[mess];
+				    var text = obj.name +" said:\n" +obj.message;
+					var date = obj.timestamp != null ? new Date(obj.timestamp*1000) : new Date();
+					var mess = new Message(text, date);
+	                var messageID = MessageBoard.messages.push(mess)-1;
+	                MessageBoard.renderMessage(messageID);
+				}
+				document.getElementById("nrOfMessages").innerHTML = MessageBoard.messages.length;
+			},
+			complete: MessageBoard.getNewMessages
+		});
+	
+
+    },
+    getNewMessages: function() {
+    	var lastMessage = $(".message").last();
+    	var timestring = $("span", lastMessage).text().replace(new RegExp("-", "g"), "/");
+    	var timestamp = Math.floor((Date.parse(timestring)).valueOf()/1000);
+    	
+        $.ajax({
+			type: "GET",
+			url: "get.php",
+			data: {function: "getNewMessages", timestamp: timestamp},
+			success: function(data) { // called when the AJAX call is ready
+				if (data != "") {
+					data = JSON.parse(data);
+					for(var mess in data) {
+						var obj = data[mess];
+					    var text = obj.name +" said:\n" +obj.message;
+						var date = obj.timestamp != null ? new Date(obj.timestamp*1000) : new Date();
+						var mess = new Message(text, date);
+		                var messageID = MessageBoard.messages.push(mess)-1;
+		                MessageBoard.renderMessage(messageID);
+					}
+					document.getElementById("nrOfMessages").innerHTML = MessageBoard.messages.length;
+				}
+			},
+			complete: MessageBoard.getNewMessages
 		});
 	
 
@@ -61,11 +85,9 @@ var MessageBoard = {
         // Make call to ajax
         $.ajax({
 			type: "GET",
-		  	url: "functions.php",
-		  	data: {function: "add", name: MessageBoard.nameField.value, message:MessageBoard.textField.value}
-		}).done(function(data) {
-		  alert("Your message is saved! Reload the page for watching it");
-		});
+		  	url: "post.php",
+		  	data: {function: "add", name: MessageBoard.nameField.value, message: MessageBoard.textField.value}
+		}).done(function(data) {});
     
     },
     renderMessages: function(){
@@ -104,7 +126,6 @@ var MessageBoard = {
         text.innerHTML = MessageBoard.messages[messageID].getHTMLText();        
         div.appendChild(text);
             
-        // Time - Should fix on server!
         var spanDate = document.createElement("span");
         spanDate.appendChild(document.createTextNode(MessageBoard.messages[messageID].getDateText()));
 
@@ -168,7 +189,7 @@ Message.prototype.getHTMLText = function() {
 };
 
 Message.prototype.getDateText = function() {
-    return this.getDate().toLocaleTimeString();
+    return this.getDate().toLocaleString();
 };
 
 window.onload = MessageBoard.init;
