@@ -1,5 +1,7 @@
 <?php
 
+require_once("sec.php");
+
 $name = $_GET["name"] != null ? strip_tags($_GET["name"]) : "";
 $message = $_GET["message"] != null ? strip_tags($_GET["message"]) : "";
 

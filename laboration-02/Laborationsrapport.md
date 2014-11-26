@@ -21,6 +21,13 @@ att innan et meddelande läggs till undersöka om användaren är inloggad
 genom att använda funktionen *checkUser()* i filen *sec.php*.
 
 ###Icke inloggade användare kan hämta ut meddelanden
+En icke inloggad användare kan med ett URL-anrop få ut alla meddelanden som 
+finns sparade i databasen utan att vara inloggad. Detta kan användas av en 
+hackare för att stjäla hemlig information och avlyssna användarnas 
+meddelandekonversationer. Jag har delvis täppt till säkerhetshålet genom att 
+kolla om efterfrågaren är inloggad innan meddelanden skickas ut, men i ett 
+fleranvändarsystem skulle detta naturligtvis inte räckt, då skulle exempelvis 
+rättigheter till enskilda meddelanden fått undersökas.
 
 ###PDO's felmeddelanden ekas ut till klienten
 I klasserna *get.php*, *post.php* och *sec.php* så ekas PDO's felmeddelanden 

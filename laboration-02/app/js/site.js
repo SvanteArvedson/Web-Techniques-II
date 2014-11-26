@@ -87,7 +87,9 @@ var MessageBoard = {
 			type: "GET",
 		  	url: "post.php",
 		  	data: {function: "add", name: MessageBoard.nameField.value, message: MessageBoard.textField.value}
-		}).done(function(data) {});
+		}).done(function(data) {
+			$("#inputText").val("");
+		});
     
     },
     renderMessages: function(){

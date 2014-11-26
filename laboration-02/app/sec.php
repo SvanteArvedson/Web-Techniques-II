@@ -4,15 +4,20 @@
 Just some simple scripts for session handling
 */
 function sec_session_start() {
-        $session_name = 'sec_session_id'; // Set a custom session name
-        $secure = false; // Set to true if using https.
-        ini_set('session.use_only_cookies', 1); // Forces sessions to only use cookies.
-        $cookieParams = session_get_cookie_params(); // Gets current cookies params.
-        session_set_cookie_params(3600, $cookieParams["path"], $cookieParams["domain"], $secure, false);
-        $httponly = true; // This stops javascript being able to access the session id.
-        session_name($session_name); // Sets the session name to the one set above.
-        session_start(); // Start the php session
-        session_regenerate_id(); // regenerated the session, delete the old one.
+    $session_name = 'sec_session_id'; // Set a custom session name
+    $secure = false; // Set to true if using https.
+    ini_set('session.use_only_cookies', 1); // Forces sessions to only use cookies.
+    $cookieParams = session_get_cookie_params(); // Gets current cookies params.
+    session_set_cookie_params(3600, $cookieParams["path"], $cookieParams["domain"], $secure, false);
+    $httponly = true; // This stops javascript being able to access the session id.
+    session_name($session_name); // Sets the session name to the one set above.
+    session_start(); // Start the php session
+    session_regenerate_id(); // regenerated the session, delete the old one.
+}
+
+function sec_session_end() {
+    $setcookie('sec_session_id', '', time() - 10000);
+    session_destroy();    
 }
 
 function checkUser() {
@@ -91,14 +96,6 @@ function getUser($user) {
 	}
 
 	
-}
-
-function logout() {
-	if(!session_id()) {
-		sec_session_start();
-	}
-	session_end();
-	header('Location: index.php');
 }
 
 function createSalt(){
