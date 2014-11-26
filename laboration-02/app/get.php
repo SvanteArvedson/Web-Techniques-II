@@ -33,7 +33,7 @@ function getAllMessages() {
     $db = null;
     
 	try {
-	    $db = new PDO("sqlite:db.db");
+	    $db = new PDO("sqlite:data/db.db");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
 	    $q = "SELECT * FROM messages";
@@ -60,7 +60,7 @@ function getNewMessages($timestamp) {
     $db = null;
     
     try {
-        $db = new PDO("sqlite:db.db");
+        $db = new PDO("sqlite:data/db.db");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $q = "SELECT * FROM messages WHERE timestamp > ?";

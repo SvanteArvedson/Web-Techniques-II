@@ -16,7 +16,7 @@ function addToDB($message, $user) {
 	$db = null;
 
 	try {
-		$db = new PDO("sqlite:db.db");
+		$db = new PDO("sqlite:data/db.db");
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $q = "INSERT INTO messages (message, name, timestamp) VALUES(?, ?, ?)";
         $param = array($message, $user, time());
