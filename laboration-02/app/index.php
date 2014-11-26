@@ -1,3 +1,18 @@
+<?php
+    
+require_once("sec.php");
+    
+if(!session_id()) {
+    sec_session_start();
+}
+
+if (isset($_SESSION["username"])) {
+    header("Location: mess.php");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="sv">
   <head>

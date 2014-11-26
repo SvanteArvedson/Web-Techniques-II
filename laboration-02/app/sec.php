@@ -16,8 +16,13 @@ function sec_session_start() {
 }
 
 function sec_session_end() {
-    $setcookie('sec_session_id', '', time() - 10000);
-    session_destroy();    
+    if(!session_id()) {
+        sec_session_start();
+    }
+    
+    setcookie('sec_session_id', '', time() - 10000);
+    unset($_SESSION["username"]);
+    unset($_SESSION["login_string"]);  
 }
 
 function checkUser() {
@@ -38,6 +43,8 @@ function checkUser() {
 	else {
 		header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
 	}
+    
+    session_write_close();
     
 	return true;
 }

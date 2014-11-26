@@ -1,3 +1,19 @@
+<?php
+
+require_once("sec.php");
+
+if(!session_id()) {
+    sec_session_start();
+}
+
+if (!isset($_SESSION["username"])) {
+    header("Location: index.php");
+    die();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="sv">
 	<head>
@@ -30,8 +46,7 @@
 		</div>
 
 		<script src="js/jquery-1.10.2.min.js"></script>
-		<!--<script src="js/site.min.js"></script>-->
-		<script src="js/site.js"></script>
+		<script src="js/site-0.1.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				MessageBoard.getAllMessages();

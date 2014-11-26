@@ -15,7 +15,7 @@ elseif($_GET['function'] == 'getNewMessages') {
     $turns = 0;
 
     if ($timestamp != null && checkUser()) {
-        while ($again && $turns <= 15) {
+        while ($again && $turns <= 50) {
             $result = getNewMessages($timestamp);
             
             if ($result) {
@@ -23,7 +23,7 @@ elseif($_GET['function'] == 'getNewMessages') {
                 $again = false;
             } else {
                 $turns += 1;
-                usleep(1000000);
+                usleep(500000);
             }
         }
     }

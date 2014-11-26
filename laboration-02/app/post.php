@@ -29,4 +29,3 @@ function addToDB($message, $user) {
 		die("Ett serverfel inträffade.");
 	}
 }
-

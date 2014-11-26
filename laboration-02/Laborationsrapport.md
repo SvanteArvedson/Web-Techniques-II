@@ -100,3 +100,29 @@ Jag har tagit bort duplicerade filer från *mess.php*.
 
 ##Long polling
 
+###Min implementation
+För att implementera long polling så har jag skapat en ny funktion 
+*getNewMessages($timestamp)* som tar emot ett timestamp och som söker efter 
+meddelanden som är postade efter att tidpunkten som gavs som argument. 
+Funktionen kollar i databasen om nya meddelande finns, om inte så sover 
+exekveringen i en sekund och föröker därefter igen. Funktionen exekverar max 
+25 gånger innan den avbryter, detta för att undvka fel när PHPs maximala 
+exekveringstid passeras. Hittar finktionen nya meddelanden så skickas dessa 
+ut till klienten.    
+Ett AJAX-anrop från klienten anropar *getNewMessages($timestamp)* och väntar 
+därefter på svar. När ett svar kommer som innehåller nya meddelanden så 
+renderas dessa ut i DOM'en. Därefter görs ett nytt anrop till 
+*getNewMessages*. Tidpunkten som skickas som argument hämtar klienten från 
+det senaste meddelandet som renderats ut.    
+För att unvika problem med att anrop (hämta nya meddelanden, skicka nytt 
+meddelande) så delade jag upp anropen till två olika script istället för som 
+i applikationen ursprungsskick där anropen gick till endast ett script. Detta 
+gör att anropen inte blockerar varandra.
+
+###Kommentarer
+Long polling fungerar men verkar slösa stort på serverns resurser. Jag gissar 
+dessutom att min lösning inte är den mest optimala, den slösar inte bara på 
+serverns resurser utan också på databasuppkopplingar. Skulle jag implementera 
+detta fler gånger så skulle jag leta efter ett bra ramverk som gör det här 
+bättre, men aldra helst skulle jag nog vilja kolla på någon av de andra 
+tillgängliga teknikerna som exemlevis *web sockets*.
