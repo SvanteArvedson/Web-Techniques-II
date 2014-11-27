@@ -2,10 +2,11 @@
 
 require_once("sec.php");
 
-$name = $_GET["name"] != null ? strip_tags($_GET["name"]) : "";
-$message = $_GET["message"] != null ? strip_tags($_GET["message"]) : "";
+$name = $_POST["name"] != null ? strip_tags($_POST["name"]) : "";
+$message = $_POST["message"] != null ? strip_tags($_POST["message"]) : "";
+$CSRFtoken = $_POST["CSRFtoken"] != null ? $_POST["CSRFtoken"] : "";
 
-if ($name != "" && $message != "" && checkUser()) {
+if ($name != "" && $message != "" && checkUser($CSRFtoken)) {
     addToDB($message, $name);
 }
 

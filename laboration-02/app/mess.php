@@ -28,7 +28,8 @@ if (!isset($_SESSION["username"])) {
 	<body>
 		<div id="container">
 			<div id="messageboard">
-				<a class="btn btn-danger" id="buttonLogout" href="logout.php">Logout</a>
+		        <input type="hidden" id="CSRFtoken" value="<?php echo $_SESSION['CSRFtoken']; ?>" />
+			    <a class="btn btn-danger" id="buttonLogout" href="logout.php">Logout</a>
 				<div id="messagearea"></div>
 				<p id="numberOfMess">
 					Antal meddelanden: <span id="nrOfMessages">0</span>
@@ -46,7 +47,7 @@ if (!isset($_SESSION["username"])) {
 		</div>
 
 		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/site-0.1.min.js"></script>
+		<script src="js/site-0.2.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				MessageBoard.getAllMessages();

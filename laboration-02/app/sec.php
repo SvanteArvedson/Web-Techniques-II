@@ -22,10 +22,11 @@ function sec_session_end() {
     
     setcookie('sec_session_id', '', time() - 10000);
     unset($_SESSION["username"]);
-    unset($_SESSION["login_string"]);  
+    unset($_SESSION["login_string"]);
+    unset($_SESSION["CSRFtoken"]);
 }
 
-function checkUser() {
+function checkUser($CSRFtoken = null) {
 	if(!session_id()) {
 		sec_session_start();
 	}
@@ -37,8 +38,13 @@ function checkUser() {
 
 	if(isset($_SESSION['login_string'])) {
 		if($_SESSION['login_string'] !== hash('sha512', "123456" + $un) ) {
-			header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
+		    header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
 		}
+        if($CSRFtoken !== null) {
+            if($CSRFtoken !== $_SESSION['CSRFtoken']) {
+                header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
+            }
+        }
 	}
 	else {
 		header('HTTP/1.1 401 Unauthorized'); die("401 Unauthorized");
@@ -107,4 +113,8 @@ function getUser($user) {
 
 function createSalt(){
     return "_" . substr(md5(rand()), 0, 8);
+}
+
+function createCSRFtoken() {
+    return base64_encode(substr(md5(rand()), 0, 50));
 }

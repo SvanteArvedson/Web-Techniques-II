@@ -29,6 +29,12 @@ kolla om efterfrågaren är inloggad innan meddelanden skickas ut, men i ett
 fleranvändarsystem skulle detta naturligtvis inte räckt, då skulle exempelvis 
 rättigheter till enskilda meddelanden fått undersökas.
 
+###CSRF attack möjlig
+En användare kan men hjälp av en CSRF attack posta och hämta meddelanden till 
+databasen. För att hindra detta har jag lagt till en CSRFtoken som kontrolleras 
+varje gång ett AJAX-anrop görs och jag har även ändrat AJAX-anropet från en 
+GET till en POST för att hålla token-nyckeln dold.
+
 ###PDO's felmeddelanden ekas ut till klienten
 I klasserna *get.php*, *post.php* och *sec.php* så ekas PDO's felmeddelanden 
 ut till klienten. Detta är inte bra så det avslöjar information om 

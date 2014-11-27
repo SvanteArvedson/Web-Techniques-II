@@ -2,19 +2,23 @@
 
 require_once("sec.php");
 
+$CSRFtoken = $_POST["CSRFtoken"] != null ? $_POST["CSRFtoken"] : "";
+
+
+
 // add check for login user
-if($_GET['function'] == 'getAllMessages') {
-    if (checkUser()) {
+if($_POST['function'] == 'getAllMessages') {
+    if (checkUser($CSRFtoken)) {
         echo(json_encode(getAllMessages()));
     }    
 }
-elseif($_GET['function'] == 'getNewMessages') {
+elseif($_POST['function'] == 'getNewMessages') {
     
-    $timestamp = $_GET['timestamp'];
+    $timestamp = $_POST['timestamp'];
     $again = true;
     $turns = 0;
 
-    if ($timestamp != null && checkUser()) {
+    if ($timestamp != null && checkUser($CSRFtoken)) {
         while ($again && $turns <= 50) {
             $result = getNewMessages($timestamp);
             

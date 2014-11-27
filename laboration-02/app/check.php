@@ -9,8 +9,11 @@ $p = $_POST['password'];
 if(isset($u) && isset($p) && isUser($u, $p)) {
 	// set the session
 	sec_session_start();
+
 	$_SESSION['username'] = $u;
 	$_SESSION['login_string'] = hash('sha512', "123456" + $u);
+    $_SESSION['CSRFtoken'] = createCSRFtoken();
+
 	header("Location: mess.php");
     die();
 } else {
