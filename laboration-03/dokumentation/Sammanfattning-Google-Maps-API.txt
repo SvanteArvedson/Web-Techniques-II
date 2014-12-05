@@ -1,0 +1,53 @@
+#Google Maps API 
+Sammanfattning av för applikationen nödvändig användning av Google Maps API.
+
+Referenslista för API:et [https://developers.google.com/maps/documentation/javascript/reference](https://developers.google.com/maps/documentation/javascript/reference)
+
+##API nyckel
+För att kunna göra requests mot API:et måste man ha en nyckel. Jag kommer strax att skapa en sådan nyckel.
+
+##Script
+###Inladdning
+I HTML-sidan laddar man in Google Maps javascript-API med en script tagg:
+*<script type="text/javascript"    
+  src="https://maps.googleapis.com/maps/api/js?key=API_KEY">    
+</script>*
+Man kan ladda in fler delar av biblioteket också om det behövs med hjälp av URL-parametern *libraries*.
+
+###Callback    
+Med parametern *callback* kan man ange en egen funktion som skall exekveras när inladdningen av API:et är klart, exempelvis en initialize-metod.    
+Ex: *function initialize() {    
+  var mapOptions = {    
+    zoom: 8,    
+    center: new google.maps.LatLng(-34.397, 150.644)    
+  };    
+  var map = new google.maps.Map(document.getElementById('map-canvas'),    
+      mapOptions);    
+}    
+function loadScript() {    
+  var script = document.createElement('script');    
+  script.type = 'text/javascript';    
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize';    
+  document.body.appendChild(script);    
+}    
+window.onload = loadScript;*    
+
+###Placering
+Man placerar kartan i een div-tagg (ex div#map-canvas). Kartan får alltid samma strolek som div-taggen, så dess storlek måste alltid anges explicit.
+
+###Objektet mapOptions
+I javascriptobjektet mapOptions anges initieringsvärdena för kartan. Egenskaperna *center* och *zoom* är obligatoriska och utöver det finns det flera valbara egenskaper.
+
+####Center
+*center* definieras av ett *google.maps.LatLng(-34.397, 150.644)*-objekt eller ett objektliteral *{ lat: -34.397, lng: 150.644 }*
+
+####Zoom
+*zoom* anges av en siffra och är zoomen vid nitieringen av kartan (0 - ?).
+
+####Fler egenskaper
+[https://developers.google.com/maps/documentation/javascript/reference#MapOptions](https://developers.google.com/maps/documentation/javascript/reference#MapOptions)
+
+###Map-objektet
+Kartan på en sida är ett google.maps.Map(canvas-node, mapOptions). Objektet skapas med operatorn **new**.
+En bra idé är att skapa objektet först när sidan har laddas in helt (window.onload).
+

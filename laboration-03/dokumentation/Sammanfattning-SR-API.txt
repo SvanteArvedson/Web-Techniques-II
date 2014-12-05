@@ -1,0 +1,38 @@
+#SR:s API 
+Sammanfattning av för applikationen nödvändig användning av SR:s API.
+
+##Ändringar och frågor
+Ändringar av API:et publiseras på SR:s 
+[utvecklingsblogg](http://sverigesradio.se/sida/gruppsida.aspx?programid=4282&grupp=16907 "http://sverigesradio.se/sida/gruppsida.aspx?programid=4282&grupp=16907"). 
+Bra att hålla koll på så att jag inte missar några ändringar.
+På SR:s [öppna forum](https://groups.google.com/forum/#!forum/sr-api "https://groups.google.com/forum/#!forum/sr-api")
+besvaras frågor angående SR:s API.
+
+##Generella parametrar
++*filter* och *filtervalue* - anger om svaren ska filtreras (ex: filter=category&filtervalue=3)
++*format* - här anger man vilket format man vill ha ut datan i (för mig: format=json)
++*size* - hur många objekt man vill ha ut (för mig size=100)
++*sort* - anger hur sortering av resultaten ska ske 
+  (ex: sort=id+desc anger att resultatet ska sorteras nedifrån på id) Man kan stapla flera 
+  sorteringar efter varandra.
++*indent* - gör JSON mer läsbart för människor (indent=true)
+
+##Retur
+I svaren ingår objekt med elementen:
++id - Meddelandets unika id
++priority - Meddelandets prioritet (1 = Mycket allvarlig händelse, 2 = Stor händelse, 3 = Störning, 4 = Information, 5 = Mindre störning)
++createddate - När meddelandet skapades
++title - Meddelandets rubrik/plats
++exactlocation - Detaljerad beskrivning av plats
++description - Beskrivande text för meddelandet
++latitude - Meddelandets position
++longitude - Meddelandets position
++category - Meddelandets kategori (0 = Vägtrafik, 1 = Kollektivtrafik, 2 = Planerad störning, 3 = Övrigt)
++subcategory - Meddelandets underkategori
+
+##Villkor
+Det finns inga begränsningar på antalet anrop eller dylikt, men var snäll mot 
+APIet och gör så få anrop som möjligt. Användare av APIet behöver inte registrera 
+sig, även om det rekommenderas att alla användare är delaktiga i APIets öppna 
+forum för att utbyta erfarenheter. Alla som använder APIet antas ha tagit del 
+av och följa ovan nämnda användarvillkor.
