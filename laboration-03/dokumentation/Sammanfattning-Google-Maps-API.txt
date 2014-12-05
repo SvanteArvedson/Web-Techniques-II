@@ -51,3 +51,5 @@ I javascriptobjektet mapOptions anges initieringsvärdena för kartan. Egenskape
 Kartan på en sida är ett google.maps.Map(canvas-node, mapOptions). Objektet skapas med operatorn **new**.
 En bra idé är att skapa objektet först när sidan har laddas in helt (window.onload).
 
+##Villkor
+Man får använda API:et utan kostnad om man gör färre än 25000 requests per dag.
