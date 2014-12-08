@@ -9,4 +9,5 @@ namespace views;
  */
 class Action {
     const KEY = "action";
+    const NEW_TRAFIC_MESSAGES = "getNewTrafficMessages";
 }

@@ -19,6 +19,9 @@ class Controller {
             case null :
                 $this -> displayPage($view);
                 break;
+            case \views\Action::NEW_TRAFIC_MESSAGES :
+                $this -> sendNewTrafficMessages();
+                break;
             default:
                 die("Ogiltig URL");
                 break;
@@ -31,5 +34,10 @@ class Controller {
     private function displayPage(\views\View $view) {
         $viewModel = null;
         $view -> display($viewModel);
+    }
+
+    private function sendNewTrafficMessages() {
+        //TODO: Fetch string from service class
+        echo file_get_contents("data/result.json");
     }
 }

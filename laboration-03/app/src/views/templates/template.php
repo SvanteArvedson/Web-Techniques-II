@@ -14,7 +14,16 @@
                 <h1 class="col-xs-12">Laboration 3</h1>
             </header>
             <section class="row">
-                <div id="map-canvas" class="col-xs-12"></div>
+                <div id="map-canvas" class="col-xs-6">
+                    <img class="ajax-loader center-block" src="<?php echo dirname($_SERVER['PHP_SELF']) . "/src/contents/img/ajax-loader.gif"; ?>" />
+                </div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul id="trafficMessages"></ul>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         
@@ -24,7 +33,7 @@
         <script src="//maps.googleapis.com/maps/api/js?key=<?php echo \settings\AppSettings::GOOGLE_API_KEY; ?>"></script>
         <script src="<?php echo dirname($_SERVER['PHP_SELF']) . "/src/contents/js/site.js"; ?>"></script>
         <script type="text/javascript">
-            window.onload = Site.initialize();
+            window.onload = site.run();
         </script>
     </body>
 </html>
