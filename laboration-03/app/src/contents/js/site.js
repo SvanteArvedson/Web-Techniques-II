@@ -15,28 +15,53 @@ site.run = function() {
 
 site.renderMessages = function(trafficMessages) {
 	var HTMLstring = "";
-	for (var i in trafficMessages) {
+	for (var i = trafficMessages.length - 1; i >= 0; i -= 1) {
 		var trafficMessage = trafficMessages[i];
 		
 		var dateString = trafficMessage.date.toLocaleString();
 		HTMLstring += "<li>" +
-							"<div class='panel'>" +
-								"<p>" +
-									"<i>" + dateString + "</i>," 
-										+ trafficMessage.title + ", " 
-										+ trafficMessage.exactlocation + " - " 
-										+ trafficMessage.description + "</p>" +
+							"<div class='panel panel default'>" +
+								"<div class='panel-body trafficMessage'>" +
+									"<h2><i>" + dateString + "</i>, " + trafficMessage.title + "</h2>" +
+									"<p>" + trafficMessage.exactlocation + "</p>" + 
+									"<p>" + trafficMessage.description + "</p>" +
+								"<div>" +
 		 					"<div>" +
-		 			"</li>";
+	 					"</li>";
 	}
 	$("#trafficMessages").html(HTMLstring);
+	
+	site.initiateJPages();
+};
+
+site.initiateJPages = function() {
+	$(function() {
+	    /* initiate plugin */
+	    $("#paginationHolder").jPages({
+	        containerID : "trafficMessages",
+	        perPage : 6
+	    });
+	    
+	    /* on select change */
+	    $("select").change(function(){
+	      
+	        /* get new nº of items per page */
+	      var newPerPage = parseInt( $(this).val() );
+	      
+	      /* destroy jPages and initiate plugin again */
+	      $("#paginationHolder").jPages("destroy").jPages({
+	            containerID   : "trafficMessages",
+	            perPage       : newPerPage
+	        });
+	    });
+	});
 };
 
 site.MapService = function(canvasNode) {
 	// private
 	var mapOptions = {
 		center : new google.maps.LatLng(63, 17),
-		zoom : 4
+		zoom : 5
 	};
 	
 	// private

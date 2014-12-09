@@ -21,6 +21,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <ul id="trafficMessages"></ul>
+                            <ul id="paginationHolder" class="pagination"></ul>
                         </div>
                     </div>
                 </div>
@@ -29,6 +30,7 @@
         
         <!-- Scripts -->
         <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="<?php echo dirname($_SERVER['PHP_SELF']) . "/src/contents/js/jPages.min.js"; ?>"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="//maps.googleapis.com/maps/api/js?key=<?php echo \settings\AppSettings::GOOGLE_API_KEY; ?>"></script>
         <script src="<?php echo dirname($_SERVER['PHP_SELF']) . "/src/contents/js/site.js"; ?>"></script>
