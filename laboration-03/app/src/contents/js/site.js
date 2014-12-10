@@ -67,6 +67,7 @@ site = function() {
 		mapService.renderTrafficMessages(category);
 	};
 	
+	// public
 	this.startAnimation = function(trafficMessageId) {
 		mapService.startAnimation(trafficMessageId);
 	};
@@ -95,17 +96,17 @@ site.trafficMessageRenderer = function(trafficMessages) {
 				category: trafficMessage.category,
 				
 				html: "<li>" +
-							"<div id='" + trafficMessage.id + "' class='panel panel-default'>" +
-								"<div class='panel-heading'>" +
-									"<h2>" + dateString + ", " + trafficMessage.title + "</h2>" +
-								"</div>" +
-								"<div class='panel-body trafficMessage'>" +
-									"<p><i>" + trafficMessage.category + " - " + trafficMessage.subcategory + "</i></p>" +
-									"<p>" + trafficMessage.exactlocation + "</p>" + 
-									"<p>" + trafficMessage.description + "</p>" +
-								"<div>" +
-		 					"<div>" +
-	 					"</li>"
+						"<div id='" + trafficMessage.id + "' class='panel panel-default'>" +
+							"<div class='panel-heading'>" +
+								"<h2>" + dateString + ", " + trafficMessage.title + "</h2>" +
+							"</div>" +
+							"<div class='panel-body trafficMessage'>" +
+								"<p><i>" + trafficMessage.category + " - " + trafficMessage.subcategory + "</i></p>" +
+								"<p>" + trafficMessage.exactlocation + "</p>" + 
+								"<p>" + trafficMessage.description + "</p>" +
+							"<div>" +
+	 					"<div>" +
+ 					"</li>"
 			};
 
 		 	ret.push(trafficMessagePanel);
@@ -117,7 +118,7 @@ site.trafficMessageRenderer = function(trafficMessages) {
 	function createTrafficMessagePanelClickEvents(trafficMessagePanels) {
 		for (var index in trafficMessagePanels) {
 			var trafficMessagePanel = trafficMessagePanels[index];
-			
+		
 			$("#" + trafficMessagePanel.id).click(function(event){
 				site.startAnimation($(this).attr("id"));
 			});
@@ -201,13 +202,13 @@ site.MapService = function(canvasNode, trafficMessages) {
 	function createInfoWindowContent(trafficMessage) {
 		var dateString = trafficMessage.date.toLocaleString();
 		return "<div id='content'>" + 
-					"<h1 id='firstHeading' class='firstHeading'>" + dateString + "</i>, " + trafficMessage.title + "</h1>" + 
-					"<div id='bodyContent'>" + 
-						"<p><i>" + trafficMessage.category + " - " + trafficMessage.subcategory + "</i></p>" +
-						"<p>" + trafficMessage.exactlocation + "</p>" + 
-						"<p>" + trafficMessage.description + "</p>" +
-					"</div>" + 
-				"</div>";
+				"<h1 id='firstHeading' class='firstHeading'>" + dateString + "</i>, " + trafficMessage.title + "</h1>" + 
+				"<div id='bodyContent'>" + 
+					"<p><i>" + trafficMessage.category + " - " + trafficMessage.subcategory + "</i></p>" +
+					"<p>" + trafficMessage.exactlocation + "</p>" + 
+					"<p>" + trafficMessage.description + "</p>" +
+				"</div>" + 
+			"</div>";
 	};
 	
 	// private
@@ -283,12 +284,7 @@ site.TrafficMessageService = function() {
 			url : "index.php?action=getNewTrafficMessages",
 			async : false
 		}).done(function(rawData) {
-			console.log(rawData);
-			
 			var data = jQuery.parseJSON(rawData);
-			
-			console.log(data);
-			
 			for (var object in data.messages) {
 				var trafficMessageRaw = data.messages[object];
 				trafficMessages.push(new site.TrafficMessage(trafficMessageRaw));
@@ -306,29 +302,43 @@ site.TrafficMessageService = function() {
 	};
 };
 
+site.escapeHtml = function(string) {
+	var entityMap = {
+	    "&": "&amp;",
+	    "<": "&lt;",
+	    ">": "&gt;",
+	    '"': '&quot;',
+	    "'": '&#39;',
+	    "/": '&#x2F;'
+  	};
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
+    });
+};
+
 // Constructor
 site.TrafficMessage = function(trafficMessageRaw) {
-	this.id = trafficMessageRaw.id;
-	this.title = trafficMessageRaw.title;
-	this.latitude = trafficMessageRaw.latitude;
-	this.longitude = trafficMessageRaw.longitude;
-	this.exactlocation = trafficMessageRaw.exactlocation;
+	this.id = site.escapeHtml(trafficMessageRaw.id);
+	this.title = site.escapeHtml(trafficMessageRaw.title);
+	this.latitude = site.escapeHtml(trafficMessageRaw.latitude);
+	this.longitude = site.escapeHtml(trafficMessageRaw.longitude);
+	this.exactlocation = site.escapeHtml(trafficMessageRaw.exactlocation);
 	var dateAsString = trafficMessageRaw.createddate.match(/(\d+)/)[0];
 	this.date = new Date(parseInt(dateAsString));
 	switch(trafficMessageRaw.category) {
 	case 0:
-		this.category = "Vägtrafik";
+		this.category = site.escapeHtml("Vägtrafik");
 		break;
 	case 1:
-		this.category = "Kollektivtrafik";
+		this.category = site.escapeHtml("Kollektivtrafik");
 		break;
 	case 2:
-		this.category = "Planerad störning";
+		this.category = site.escapeHtml("Planerad störning");
 		break;
 	default:
-		this.category = "Övrigt";
+		this.category = site.escapeHtml("Övrigt");
 
 	}
-	this.subcategory = trafficMessageRaw.subcategory;
-	this.description = trafficMessageRaw.description;
+	this.subcategory = site.escapeHtml(trafficMessageRaw.subcategory);
+	this.description = site.escapeHtml(trafficMessageRaw.description);
 };
