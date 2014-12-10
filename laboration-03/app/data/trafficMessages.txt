@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sr>
+  <copyright>Copyright Sveriges Radio 2014. All rights reserved.</copyright>
+  <pagination>
+    <page>1</page>
+    <size>100</size>
+    <totalhits>167</totalhits>
+    <totalpages>2</totalpages>
+    <nextpage>http://api.sr.se/api/v2/traffic/messages?size=100&amp;page=2</nextpage>
+  </pagination>
+  <messages>
+    <message id="1115618" priority="5">
+      <createddate>2014-08-11T05:54:55.77</createddate>
+      <title>E6 Inre ringvägen Malmö</title>
+      <exactlocation>Västkustvägen tpl Spillepengen</exactlocation>
+      <description>Stor risk för köer pga ombyggnad. Valmöjligheterna i rondellen begränsas och trafiken måste välja andra vägar.</description>
+      <latitude>55.633197784423828</latitude>
+      <longitude>13.055941581726074</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1126561" priority="3">
+      <createddate>2014-08-17T09:06:50.733</createddate>
+      <title>Kungälv Jordfallsbron</title>
+      <exactlocation>Bohus - Kungälv</exactlocation>
+      <description>Arbeten på bron med att byta kantbalk. Planerna är att två körfält kommer att vara öppna i den riktning som är hårdast belastad.</description>
+      <latitude>57.855087280273438</latitude>
+      <longitude>12.01069164276123</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1205525" priority="5">
+      <createddate>2014-09-18T00:26:21.797</createddate>
+      <title>Sollefteå kommun</title>
+      <exactlocation>Långbjörns kraftstation söder om Junsele</exactlocation>
+      <description>Pga arbeten vid kraftstationen stängs vägen över dammen mellan Röåns skjutbana och rv 90. Avstängt för all trafik från 26/7 till 31/3 2015. </description>
+      <latitude>63.637242114815805</latitude>
+      <longitude>16.777747164619381</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1236052" priority="3">
+      <createddate>2014-10-07T07:31:34.607</createddate>
+      <title>Lv 1610 Viskafors-Rydboholm</title>
+      <exactlocation>Varbergsvägen</exactlocation>
+      <description>Brorenovering. Avstängt. Omledning.</description>
+      <latitude>57.648490905761719</latitude>
+      <longitude>12.879611015319824</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1278222" priority="3">
+      <createddate>2014-10-28T09:42:40.7</createddate>
+      <title>E4 Piteå-Norrfjärden</title>
+      <exactlocation>Boviken-Norrfjärden</exactlocation>
+      <description>Ombyggnation av E4 till 2+1 väg med mittvajer. </description>
+      <latitude>65.3726806640625</latitude>
+      <longitude>21.42949104309082</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1272716" priority="5">
+      <createddate>2014-11-04T13:23:08.277</createddate>
+      <title>Lv 824 Leipikvattnet -Stekenjokk</title>
+      <exactlocation />
+      <description>Vägen är stängd vintertid.</description>
+      <latitude>64.950035095214844</latitude>
+      <longitude>14.196930885314941</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1265946" priority="5">
+      <createddate>2014-11-04T13:23:45.157</createddate>
+      <title>Lv 623 Håkansta</title>
+      <exactlocation>Håkanstafärjan</exactlocation>
+      <description>Påfartsrampen till färjan har nedsatt bärighet till max 4 ton. Berör tung trafik. Gäller tills vidare.</description>
+      <latitude>63.136157989501953</latitude>
+      <longitude>14.321918487548828</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1240737" priority="3">
+      <createddate>2014-11-15T08:01:37.95</createddate>
+      <title>Rv 51 Finspång</title>
+      <exactlocation>Norrköpingsvägen. Korsningen rv 51/Slottsgatan</exactlocation>
+      <description>Begränsad framkomlighet och risk för köbildning. Byggnation av rondell. </description>
+      <latitude>58.705530830692638</latitude>
+      <longitude>15.785864334178813</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1197539" priority="3">
+      <createddate>2014-11-15T10:49:32.53</createddate>
+      <title>Rv 21 Hässleholm-Kristianstad</title>
+      <exactlocation>Ullstorp-Vanneberga</exactlocation>
+      <description>Bygge av 2+1 väg. Hastighetsbegränsning 70 km/h.</description>
+      <latitude>56.068260192871094</latitude>
+      <longitude>13.947724342346191</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1289649" priority="5">
+      <createddate>2014-11-20T10:07:41.66</createddate>
+      <title>Lv747 Dormsjö-Brovallen </title>
+      <exactlocation />
+      <description>Fällning av ett stort antal alléträd i höjd med Kloster. Skylift används, varav vägen behöver vara avstängd. Arbetet utförs måndag till fredag mellan kl 08.00-15.00. </description>
+      <latitude>60.370918273925781</latitude>
+      <longitude>16.16351318359375</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1293594" priority="3">
+      <createddate>2014-11-20T17:05:49.72</createddate>
+      <title>Lv 845 Bor</title>
+      <exactlocation>Bron över Bårsån</exactlocation>
+      <description>Broarbete.</description>
+      <latitude>59.559253692626953</latitude>
+      <longitude>15.286935806274414</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1296320" priority="4">
+      <createddate>2014-11-21T15:22:28.09</createddate>
+      <title>Ljungskile</title>
+      <exactlocation>Hälle och Lyckorna</exactlocation>
+      <description>Renspolning av vattenledningarna sker 24 nov–12 dec. Vattnet stängs av vid olika tider och berörda hushåll meddelas per post två dagar innan.  Inga kemikalier används och vattnet är ofarligt.</description>
+      <latitude>58.215723715578676</latitude>
+      <longitude>11.907643089049248</longitude>
+      <category>3</category>
+      <subcategory>Vatten</subcategory>
+    </message>
+    <message id="1293322" priority="5">
+      <createddate>2014-11-24T18:12:22.867</createddate>
+      <title>Sävenäsleden</title>
+      <exactlocation />
+      <description>Broreperation.</description>
+      <latitude>57.726161956787109</latitude>
+      <longitude>12.023475646972656</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1264122" priority="5">
+      <createddate>2014-11-25T15:08:45.563</createddate>
+      <title>Västra Götalands län</title>
+      <exactlocation />
+      <description>Fuktiga och våta vägbanor.</description>
+      <latitude>58.0697441</latitude>
+      <longitude>12.3502855</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1292348" priority="3">
+      <createddate>2014-11-26T08:02:03.867</createddate>
+      <title>E6 Kålleredsmotet -Torrekullamotet</title>
+      <exactlocation>Brännemadsbron</exactlocation>
+      <description>Lagning av bropelare i mitten av vägen. Arbetet beräknas pågå till 31 januari 2015.</description>
+      <latitude>57.611381530761719</latitude>
+      <longitude>12.045278549194336</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1299462" priority="3">
+      <createddate>2014-11-26T15:09:36.087</createddate>
+      <title>E18/E20 Arboga-Örebro</title>
+      <exactlocation>Nära E20 i Arboga </exactlocation>
+      <description>Beläggningsarbete.</description>
+      <latitude>59.404861450195312</latitude>
+      <longitude>15.754440307617187</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1293336" priority="3">
+      <createddate>2014-11-27T06:12:36.363</createddate>
+      <title>E45 Hökbäck-Lit</title>
+      <exactlocation />
+      <description>Nedsatt hastighet till 30 km/t på bron pga arbete.</description>
+      <latitude>63.3145866394043</latitude>
+      <longitude>14.867941856384277</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1294935" priority="3">
+      <createddate>2014-11-27T07:44:54.783</createddate>
+      <title>E16 Hofors-Ängelsfors</title>
+      <exactlocation>I närheten av Edsken</exactlocation>
+      <description>Trafiken regleras med ljussignaler.</description>
+      <latitude>60.544136047363281</latitude>
+      <longitude>16.218639373779297</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1298541" priority="3">
+      <createddate>2014-11-27T09:11:38.05</createddate>
+      <title>E45 Gullbergsmotet-Marieholmsmotet</title>
+      <exactlocation>I riktning mot Karlstad</exactlocation>
+      <description>Vägarbete.</description>
+      <latitude>57.720874786376953</latitude>
+      <longitude>11.995035171508789</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1300083" priority="3">
+      <createddate>2014-11-27T13:17:33.947</createddate>
+      <title>Lv 190 Göteborg-Gråbo</title>
+      <exactlocation>Olofstorp</exactlocation>
+      <description>Vägarbete i riktning mot Gråbo</description>
+      <latitude>57.815376281738281</latitude>
+      <longitude>12.189538955688477</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1298812" priority="3">
+      <createddate>2014-11-27T19:00:24.037</createddate>
+      <title>E6 Kungälv-Göteborg</title>
+      <exactlocation>Vid Klarebergsmotet (82) riktning söderut</exactlocation>
+      <description>Underhållsarbete</description>
+      <latitude>57.810920715332031</latitude>
+      <longitude>12.006141662597656</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1293942" priority="3">
+      <createddate>2014-11-28T09:33:53.6</createddate>
+      <title>Uppsala</title>
+      <exactlocation>Stora torget </exactlocation>
+      <description>Torget avstängt för busstrafik under Musikhjälpen. Mellan 1/12 och 16/12. Trångt på bland annat Östra Ågatan och Bangårdsgatan</description>
+      <latitude>59.867568193579871</latitude>
+      <longitude>17.640432160692505</longitude>
+      <category>1</category>
+      <subcategory>Buss</subcategory>
+    </message>
+    <message id="1297072" priority="3">
+      <createddate>2014-12-01T06:25:11.01</createddate>
+      <title>Röduppleden</title>
+      <exactlocation />
+      <description>Färjan ersatt av isväg. Bruttovikt för fordon: 2 ton.</description>
+      <latitude>66.485633850097656</latitude>
+      <longitude>22.777805328369141</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1301683" priority="3">
+      <createddate>2014-12-01T06:49:06.863</createddate>
+      <title>Bohedenleden</title>
+      <exactlocation />
+      <description>Isvägen är öppen för fordon upp till 2 ton.</description>
+      <latitude>66.306289672851563</latitude>
+      <longitude>22.914651870727539</longitude>
+      <category>1</category>
+      <subcategory>Färja</subcategory>
+    </message>
+    <message id="1300632" priority="3">
+      <createddate>2014-12-01T11:31:21.057</createddate>
+      <title>E6 Uddevalla–Munkedal</title>
+      <exactlocation>Vid Saltkällan, i riktning mot Munkedal</exactlocation>
+      <description>Arbete i norrgående riktning.</description>
+      <latitude>58.436489105224609</latitude>
+      <longitude>11.708499908447266</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1266974" priority="3">
+      <createddate>2014-12-01T14:23:10.74</createddate>
+      <title>Rv 27/41 Borås</title>
+      <exactlocation>Varbergsvägen till och från Borås</exactlocation>
+      <description>Bygge av ny väg mellan Kråkered-Viared.</description>
+      <latitude>57.682376861572266</latitude>
+      <longitude>12.935855865478516</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1302570" priority="3">
+      <createddate>2014-12-01T21:32:44.843</createddate>
+      <title>Lv531 Mittådalen-Ljungdalen</title>
+      <exactlocation />
+      <description>1/12 - 15/4. Vägen över Flatruet är nattstängd mellan kl 22:00 tom 06:00. </description>
+      <latitude>62.775653839111328</latitude>
+      <longitude>12.765754699707031</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1302787" priority="3">
+      <createddate>2014-12-02T08:59:15.833</createddate>
+      <title>Rv 52 Katrineholm mot Nyköping </title>
+      <exactlocation>Kerstinboda</exactlocation>
+      <description>Beläggningsarbete</description>
+      <latitude>58.995468139648438</latitude>
+      <longitude>16.1881046295166</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1302770" priority="3">
+      <createddate>2014-12-02T11:57:02.94</createddate>
+      <title>Rv 25/27 Växjö</title>
+      <exactlocation>Tpl Kvälleberg</exactlocation>
+      <description>Kabelarbete. Sänkt hastighet till 30 km/h. </description>
+      <latitude>56.896316528320312</latitude>
+      <longitude>14.732833862304688</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1294980" priority="3">
+      <createddate>2014-12-02T15:07:35.557</createddate>
+      <title>Linköping</title>
+      <exactlocation>Gumpekullavägen, mellan Gumpekullarondellen och Runstensgatan</exactlocation>
+      <description>Avstängt 3–12 dec. Omledning via Norrköpingsvägen och Kallestadsleden. Renovering av en avloppsledning. </description>
+      <latitude>58.422139552505108</latitude>
+      <longitude>15.636365096748397</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1299283" priority="5">
+      <createddate>2014-12-02T15:27:11.86</createddate>
+      <title>Lv 205 Karlskoga-Grythyttan</title>
+      <exactlocation>Kärne-Kedjeåsen</exactlocation>
+      <description>Nedsatt hastighet till 50 km/t.</description>
+      <latitude>59.463092803955078</latitude>
+      <longitude>14.502652168273926</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1303386" priority="3">
+      <createddate>2014-12-03T07:19:46.287</createddate>
+      <title>Lv 571 Skattkärrsmotet–Ve</title>
+      <exactlocation />
+      <description>Dräneringsarbete på sträckan.</description>
+      <latitude>59.418514251708984</latitude>
+      <longitude>13.668801307678223</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1303358" priority="3">
+      <createddate>2014-12-03T08:10:03.657</createddate>
+      <title>Uppsala</title>
+      <exactlocation>Vattholmavägen</exactlocation>
+      <description>Råbyvägen och Gl:a Uppsalagatan. VA-arbeten. Berör både cyklister, fotgängare och biltrafik</description>
+      <latitude>59.866179241943556</latitude>
+      <longitude>17.641540191419551</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1286816" priority="3">
+      <createddate>2014-12-03T11:30:21.98</createddate>
+      <title>E22 Kristianstad–Tollarp</title>
+      <exactlocation>Vid Nöbbelöv i båda riktningar</exactlocation>
+      <description>Trafiken regleras med vakt och lots. </description>
+      <latitude>55.9665641784668</latitude>
+      <longitude>14.073190689086914</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1302963" priority="3">
+      <createddate>2014-12-04T05:55:39.75</createddate>
+      <title>Lv 204 Svartå Herrgård - Mullhyttan båda riktningarna </title>
+      <exactlocation />
+      <description>Arbete med vägtrummor, ett körfält avstängt.</description>
+      <latitude>59.129600524902344</latitude>
+      <longitude>14.623594284057617</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1302736" priority="5">
+      <createddate>2014-12-04T12:44:03.667</createddate>
+      <title>Lv 363 Rödånäs-Vindeln</title>
+      <exactlocation />
+      <description>Begränsad framkomlighet och tillfälligt nedsatt hastighet.</description>
+      <latitude>64.158660888671875</latitude>
+      <longitude>19.835674285888672</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1303437" priority="3">
+      <createddate>2014-12-03T08:12:23.73</createddate>
+      <title>Lv 250 Gunnilbo–Oti</title>
+      <exactlocation>Strax söder om Stjärnvik</exactlocation>
+      <description>Räckesreparation.</description>
+      <latitude>59.8505859375</latitude>
+      <longitude>15.84288215637207</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1304282" priority="4">
+      <createddate>2014-12-05T05:39:31.847</createddate>
+      <title>Ledningsnätet mellan Kisa och Tidersrum</title>
+      <exactlocation />
+      <description>Kvistning längs ledningsgatan med helikopter. Skapar buller och risk för korta strömavbrott. Pågår till 20 dec. </description>
+      <latitude>57.9603726236428</latitude>
+      <longitude>15.561112047957222</longitude>
+      <category>3</category>
+      <subcategory>Buller</subcategory>
+    </message>
+    <message id="1300831" priority="5">
+      <createddate>2014-12-05T05:42:42.413</createddate>
+      <title>Lv 240 Molkom-Sunnemo</title>
+      <exactlocation>I höjd med Älvsbacka</exactlocation>
+      <description>Avstängt körfält och nedsatt hastighet.</description>
+      <latitude>59.708755493164063</latitude>
+      <longitude>13.680062294006348</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1305375" priority="3">
+      <createddate>2014-12-06T01:12:23.597</createddate>
+      <title>E10 Kiruna-Abisko</title>
+      <exactlocation />
+      <description>Det pågår rensamling under vecka 50 och 51 längs med E10. Påverkar framkomligheten då mycket renar är på/vid vägen.</description>
+      <latitude>68.358198896575459</latitude>
+      <longitude>18.783388109526481</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1303441" priority="3">
+      <createddate>2014-12-08T05:30:09.977</createddate>
+      <title>Ringenäs skjutfält</title>
+      <exactlocation />
+      <description>Skjutövningar: Mån 8/12 9-16. Tis 9/12 9-16. Ons 10/12 9-20.30. Tors 11/12 9-15.</description>
+      <latitude>56.786695237295007</latitude>
+      <longitude>12.844089756614219</longitude>
+      <category>3</category>
+      <subcategory>Övrigt</subcategory>
+    </message>
+    <message id="1298673" priority="3">
+      <createddate>2014-11-25T16:04:38.787</createddate>
+      <title>Lv 122 Fridlevstad </title>
+      <exactlocation />
+      <description>Renovering av busshållsplatser. Trafiken dirigeras med trafikljus. Rekommenderad hastighet 50 km/h.</description>
+      <latitude>56.269058227539063</latitude>
+      <longitude>15.55036449432373</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306319" priority="3">
+      <createddate>2014-12-08T06:57:52.887</createddate>
+      <title>Rv 46 Falköping-Ulricehamn</title>
+      <exactlocation>Timmele-Ulricehamn</exactlocation>
+      <description>Arbete med ny väg.</description>
+      <latitude>57.833984375</latitude>
+      <longitude>13.438756942749023</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306388" priority="3">
+      <createddate>2014-12-08T08:18:59.817</createddate>
+      <title>Rv 51 Finspång</title>
+      <exactlocation>Finspång-Finnvedsvägen</exactlocation>
+      <description>Byggande av cirkulationsplats. </description>
+      <latitude>58.705348968505859</latitude>
+      <longitude>15.784066200256348</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306402" priority="3">
+      <createddate>2014-12-08T08:28:10.277</createddate>
+      <title>E4 Skönsmon - Skönsberg</title>
+      <exactlocation />
+      <description>Omfattande arbete med skyltning, risk för trafikstörningar under dagtid på vardagar.</description>
+      <latitude>62.388938903808594</latitude>
+      <longitude>17.31468391418457</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306398" priority="3">
+      <createddate>2014-12-08T09:35:01.54</createddate>
+      <title>Rv 56 vid Äs, i båda riktningar.</title>
+      <exactlocation />
+      <description>Beläggningsarbete på kommunal gångbana. Påverkar 100 m av filen i södergående riktning.
+</description>
+      <latitude>59.155574798583984</latitude>
+      <longitude>16.109323501586914</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306530" priority="3">
+      <createddate>2014-12-08T10:36:42.337</createddate>
+      <title>Lv 288 Spånga - Alunda kyrka</title>
+      <exactlocation />
+      <description>Vägen breddas. Ljussignaler styr trafiken.</description>
+      <latitude>60.048435211181641</latitude>
+      <longitude>18.049083709716797</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1302205" priority="5">
+      <createddate>2014-12-08T10:49:43.873</createddate>
+      <title>Lv 910 Åkers Styckebruk-Merlänna</title>
+      <exactlocation />
+      <description>Vägarbete.</description>
+      <latitude>59.273712158203125</latitude>
+      <longitude>17.040412902832031</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1300263" priority="5">
+      <createddate>2014-12-08T10:59:22.117</createddate>
+      <title>Lv 660 Trevlinge–Sandbol</title>
+      <exactlocation />
+      <description>Kabelarbete på sträckan.</description>
+      <latitude>59.939731597900391</latitude>
+      <longitude>17.883937835693359</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1304456" priority="5">
+      <createddate>2014-12-08T11:00:29.21</createddate>
+      <title>Rv 83 Tönnebro-Kilafors</title>
+      <exactlocation>Stråtjära</exactlocation>
+      <description>Nedsatt hastighet till 40 km/t pga beläggningsarbete.</description>
+      <latitude>61.176025390625</latitude>
+      <longitude>16.793476104736328</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306514" priority="3">
+      <createddate>2014-12-08T11:29:16.033</createddate>
+      <title>Lv 603 Rugstorp - Ålem</title>
+      <exactlocation>Båda riktningarna</exactlocation>
+      <description>Dräneringsarbete. Trafikljus reglerar trafiken.</description>
+      <latitude>56.918964385986328</latitude>
+      <longitude>16.259061813354492</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1304817" priority="3">
+      <createddate>2014-12-08T08:22:11.627</createddate>
+      <title>Borås</title>
+      <exactlocation>Södra Kyrkogatan/Gustav Adolfsgatan, korsningen Alströmergatan</exactlocation>
+      <description>Vägen tillfälligt avstängd 8-12 /12 pga byggnation av övergångställe. </description>
+      <latitude>57.723506514124345</latitude>
+      <longitude>12.948508751591595</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1300686" priority="3">
+      <createddate>2014-12-08T12:23:38.76</createddate>
+      <title>Halmstad</title>
+      <exactlocation>Slottsjordsvägen, ut från Slottsrondellen</exactlocation>
+      <description>Avstängt tom torsdag 11 dec kl 18.  Följ orange skyltning.</description>
+      <latitude>56.670523460623528</latitude>
+      <longitude>12.8529426316641</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306619" priority="3">
+      <createddate>2014-12-08T12:24:11.173</createddate>
+      <title>Rv 55 Strängnäs-Enköping</title>
+      <exactlocation>Hjulstabron, i båda riktningar.</exactlocation>
+      <description>Vägarbete på bron. Trafik regleras med trafikljus. </description>
+      <latitude>59.5291862487793</latitude>
+      <longitude>17.00660514831543</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1263022" priority="3">
+      <createddate>2014-12-08T12:26:53.09</createddate>
+      <title>Rv 40 Ulricehamn</title>
+      <exactlocation />
+      <description>Arbete med att bygga den nya rv 40. Omledning via 50-väg genom Rönnåsens industriområde.</description>
+      <latitude>57.803955078125</latitude>
+      <longitude>13.475101470947266</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1255524" priority="3">
+      <createddate>2014-12-08T14:05:18.757</createddate>
+      <title>E4 Gränna-Huskvarna</title>
+      <exactlocation>Trafikplats Vättersmålen till Trafikplats Huskvarna norra i riktning mot Jönköping</exactlocation>
+      <description>Avstängt körfält. Arbete med bullerplank.</description>
+      <latitude>57.816932678222656</latitude>
+      <longitude>14.271590232849121</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306731" priority="3">
+      <createddate>2014-12-08T15:21:23.837</createddate>
+      <title>Lv 156 Skene-Skogshem</title>
+      <exactlocation />
+      <description>Vägen byggs om och ska bli 2+1-väg. </description>
+      <latitude>57.496719360351563</latitude>
+      <longitude>12.619714736938477</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306307" priority="3">
+      <createddate>2014-12-08T18:07:20.393</createddate>
+      <title>E6 Göteborg-Mölndal</title>
+      <exactlocation>Ullevimotet (73)</exactlocation>
+      <description>Vägarbete  runt brofästet vid Ullevimotet. berör trafiken i bägge riktningar.dagtid.</description>
+      <latitude>57.706630706787109</latitude>
+      <longitude>11.995977401733398</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1307061" priority="3">
+      <createddate>2014-12-09T06:27:16.96</createddate>
+      <title>Västmanlands län</title>
+      <exactlocation />
+      <description>På grund av arbete stannar inga SJ-tåg vid Ransta station.</description>
+      <latitude>59.754771875027444</latitude>
+      <longitude>16.61420127809566</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1307066" priority="3">
+      <createddate>2014-12-09T06:40:35.943</createddate>
+      <title>Lv 148 vid Follingborondellen, i riktning mot Visby.</title>
+      <exactlocation />
+      <description />
+      <latitude>57.624820709228516</latitude>
+      <longitude>18.320894241333008</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1303546" priority="3">
+      <createddate>2014-12-09T07:22:54.71</createddate>
+      <title>Lv 687 Brokind-Bestorp</title>
+      <exactlocation>vid Garnvik</exactlocation>
+      <description>Vägen avstängd till och med fredag (12 dec) kl. 23. Skyltad omledning. Byte av bro över järnvägen.</description>
+      <latitude>58.228622905087917</latitude>
+      <longitude>15.700775986373587</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1298201" priority="3">
+      <createddate>2014-12-09T07:33:42.81</createddate>
+      <title>Rv 23 Höör-Snogeröd</title>
+      <exactlocation>Vid Gamla Bo</exactlocation>
+      <description>Risk för köer. Trafiken regleras med trafikljus.</description>
+      <latitude>55.866470336914063</latitude>
+      <longitude>13.496500968933105</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1296228" priority="4">
+      <createddate>2014-12-09T08:13:55.12</createddate>
+      <title>Jönköping</title>
+      <exactlocation>Åsenvägen</exactlocation>
+      <description>Stängd för genomfart fr o m månd 24/11. Trafiken leds delvis om pga ett arbete i höjd med Kristinedals äldreboende. Åsenvägen beräknas öppna 13/12 igen.</description>
+      <latitude>57.779798111199149</latitude>
+      <longitude>14.162714906803089</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1212188" priority="3">
+      <createddate>2014-12-09T09:55:40.84</createddate>
+      <title>E12 Lycksele-Storuman</title>
+      <exactlocation>Åskilje, i båda riktningar</exactlocation>
+      <description>Trafik dirigeras med trafikljus och lots pga beläggningsarbete. </description>
+      <latitude>65.009452819824219</latitude>
+      <longitude>17.670541763305664</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306455" priority="3">
+      <createddate>2014-12-09T09:10:36.033</createddate>
+      <title>Åre</title>
+      <exactlocation>Åre läkarmottagning</exactlocation>
+      <description>Stängt onsdagen den 10 december på grund av utbildning.</description>
+      <latitude>63.415711728442169</latitude>
+      <longitude>13.119751024091068</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1307275" priority="3">
+      <createddate>2014-12-09T11:26:36.85</createddate>
+      <title>Dalsjöfors</title>
+      <exactlocation>Västerdalsvägen</exactlocation>
+      <description>Vägen avstängd på grund av vattenläcka 9/12-12/12.</description>
+      <latitude>57.723880501514614</latitude>
+      <longitude>13.104443794441424</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1307231" priority="3">
+      <createddate>2014-12-09T12:21:23.777</createddate>
+      <title>E4 Jönåker - Nyköping</title>
+      <exactlocation>Trafikplats Bergshammar</exactlocation>
+      <description>Avfarten stängd på grund av vägarbete.</description>
+      <latitude>58.745235443115234</latitude>
+      <longitude>16.939113616943359</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1304998" priority="3">
+      <createddate>2014-12-09T14:04:56.463</createddate>
+      <title>Härad</title>
+      <exactlocation />
+      <description>På grund av bakterier bör vattnet i Härad kokas. Felsökning pågår och information läggs ut löpande på www.sevab.com</description>
+      <latitude>59.362236699834277</latitude>
+      <longitude>16.905410008894684</longitude>
+      <category>3</category>
+      <subcategory>Vatten</subcategory>
+    </message>
+    <message id="1303131" priority="3">
+      <createddate>2014-12-09T15:24:13.48</createddate>
+      <title>Övre Husargatan, Göteborg</title>
+      <exactlocation>Brunnsgatan</exactlocation>
+      <description>Arbete med att ta bort trafikljusen för biltrafiken och fotgängare på södra sidan av rondellen. Planerat att vara klart innan jul.</description>
+      <latitude>57.69402128736423</latitude>
+      <longitude>11.957538293121674</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1306623" priority="3">
+      <createddate>2014-12-10T00:00:50.597</createddate>
+      <title>Norrköping</title>
+      <exactlocation>Hagebygatan</exactlocation>
+      <description>10/12: Gatan stängs pga vägarbete. Busshållplats Hageby vårdcentral och S:t Johannes stängs av. Resande hänvisas till hpl  Hageby C/Lidaleden och S:t Olofsgatan.</description>
+      <latitude>58.596556752708992</latitude>
+      <longitude>16.151140023522519</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1307644" priority="3">
+      <createddate>2014-12-10T00:27:28.16</createddate>
+      <title>E4 Lampen-Vånafjärden</title>
+      <exactlocation />
+      <description>Många renar som rör sig på och intill vägen.</description>
+      <latitude>65.821784973144531</latitude>
+      <longitude>23.29925537109375</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1305197" priority="4">
+      <createddate>2014-12-10T05:30:58.287</createddate>
+      <title>Älmhult</title>
+      <exactlocation>Parkeringsplatsen vid Ikeas kontor</exactlocation>
+      <description>Blodbussen är på plats onsdagen den 10/12 10:30–16:30. Både nya och gamla blodgivare är välkomna.</description>
+      <latitude>56.545165767489543</latitude>
+      <longitude>14.147109203355715</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1304296" priority="3">
+      <createddate>2014-12-10T05:31:02.413</createddate>
+      <title>Stockholm</title>
+      <exactlocation />
+      <description>Blodbussar onsdag 10/12: Kista Gallerian Jan Stenbecks Torg, Radiohuset Oxenstiernsgatan 10, Tuna torg 17 Vallentuna C, Skärholmsplan 1-5 Skärholmens C.</description>
+      <latitude>59.3243615827357</latitude>
+      <longitude>18.054250549445928</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1304851" priority="4">
+      <createddate>2014-12-10T05:44:55.163</createddate>
+      <title>Hedemora</title>
+      <exactlocation />
+      <description>10/12  Blodbussen står vid hemköp i Hedemora, kl. 9-11:45 och 13-18.</description>
+      <latitude>60.750251198062792</latitude>
+      <longitude>15.844182278901942</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1263776" priority="3">
+      <createddate>2014-12-10T05:48:27.71</createddate>
+      <title>Örebro län </title>
+      <exactlocation />
+      <description>Stor risk för halt väglag.</description>
+      <latitude>59.4352722</latitude>
+      <longitude>14.7333231</longitude>
+      <category>0</category>
+      <subcategory>Halkvarning</subcategory>
+    </message>
+    <message id="1307661" priority="3">
+      <createddate>2014-12-10T06:06:52.213</createddate>
+      <title>Stockholm-Västerås</title>
+      <exactlocation />
+      <description>Risk för förseningar i tågtrafiken på grund av ett växelfel. Felet beräknas vara åtgärdat natten mot  torsdag 11 december.</description>
+      <latitude>59.537552059714955</latitude>
+      <longitude>17.113176177527968</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1307661" priority="3">
+      <createddate>2014-12-10T06:06:52.213</createddate>
+      <title>Stockholm-Västerås</title>
+      <exactlocation />
+      <description>Risk för förseningar i tågtrafiken på grund av ett växelfel. Felet beräknas vara åtgärdat natten mot  torsdag 11 december.</description>
+      <latitude>59.537552059714955</latitude>
+      <longitude>17.113176177527968</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1302300" priority="3">
+      <createddate>2014-12-10T06:19:43.1</createddate>
+      <title>Gällivare kommun</title>
+      <exactlocation>Skröven </exactlocation>
+      <description>Dricksvattnet är otjänligt pga ekolibakterier. Koka vattnet i fem minuter innan det används för matlagning. Dricksvattentank finns uppställd vid vattenverket i byn. </description>
+      <latitude>66.760422922842608</latitude>
+      <longitude>21.881049628791235</longitude>
+      <category>3</category>
+      <subcategory>Vatten</subcategory>
+    </message>
+    <message id="1300490" priority="3">
+      <createddate>2014-12-10T06:27:14.183</createddate>
+      <title>Stockholm City Nobeldagen </title>
+      <exactlocation>Konserthuset, Hötorget och Stadshuset</exactlocation>
+      <description>Kungsgatan, mellan Vasagatan och Sveavägen, är avstängd för trafik från 12-tiden fram till dess att gästerna lämnat Konserthuset vid 18-tiden. Sveavägen, främst mellan Kungsgatan och Sergels torg, kommer att stängas av kortare perioder i samband med att gästerna anländer och vid avfärd</description>
+      <latitude>59.327516742389463</latitude>
+      <longitude>18.054261668764273</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1299425" priority="3">
+      <createddate>2014-12-10T07:52:25.68</createddate>
+      <title>Lv 1819 Habo</title>
+      <exactlocation>Del av Bränningegatan i Habo centrum</exactlocation>
+      <description>Vägen stängs av 10–12 dec i samband med ledningsarbete. Omledning via sidogator.</description>
+      <latitude>57.906024932861328</latitude>
+      <longitude>14.073467254638672</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1263774" priority="3">
+      <createddate>2014-12-10T08:49:18.92</createddate>
+      <title>Stockholms län</title>
+      <exactlocation />
+      <description>Våta eller fuktiga vägbanor med en temperatur i vägytan runt noll grader. Risk för lokal frosthalka.</description>
+      <latitude>59.3269844</latitude>
+      <longitude>17.8068523</longitude>
+      <category>0</category>
+      <subcategory>Halkvarning</subcategory>
+    </message>
+    <message id="1302696" priority="5">
+      <createddate>2014-12-10T08:58:34.523</createddate>
+      <title>Rv 86 Bergsåker-Kovland</title>
+      <exactlocation />
+      <description>Begränsad framkomlighet och tillfälligt nedsatt hastighet.</description>
+      <latitude>62.435581207275391</latitude>
+      <longitude>17.17411994934082</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1308002" priority="3">
+      <createddate>2014-12-10T09:13:59.857</createddate>
+      <title>Lv 156 Skene</title>
+      <exactlocation />
+      <description>Nybyggnation av gata och VA-arbeten.</description>
+      <latitude>57.490501403808594</latitude>
+      <longitude>12.630349159240723</longitude>
+      <category>0</category>
+      <subcategory>Vägarbete</subcategory>
+    </message>
+    <message id="1308011" priority="3">
+      <createddate>2014-12-10T09:16:07.617</createddate>
+      <title>Vaggeryd och Skillingaryd</title>
+      <exactlocation>Biblioteket</exactlocation>
+      <description>Onsdag 10/12 stänger biblioteken i Vaggeryd och Skillingaryd kl 16:00 (vanligtvis är det öppet till 19)</description>
+      <latitude>57.472876514352542</latitude>
+      <longitude>14.121777576365657</longitude>
+      <category>3</category>
+      <subcategory>Övrigt</subcategory>
+    </message>
+    <message id="1308063" priority="3">
+      <createddate>2014-12-10T10:55:57.053</createddate>
+      <title>Uppsala- Örbyhus</title>
+      <exactlocation />
+      <description>Tågtrafiken åter igång sedan kl 10:30. </description>
+      <latitude>59.8644658743957</latitude>
+      <longitude>17.644286911061727</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1308063" priority="3">
+      <createddate>2014-12-10T10:55:57.053</createddate>
+      <title>Uppsala- Örbyhus</title>
+      <exactlocation />
+      <description>Tågtrafiken åter igång sedan kl 10:30. </description>
+      <latitude>59.8644658743957</latitude>
+      <longitude>17.644286911061727</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1308063" priority="3">
+      <createddate>2014-12-10T10:55:57.053</createddate>
+      <title>Uppsala- Örbyhus</title>
+      <exactlocation />
+      <description>Tågtrafiken åter igång sedan kl 10:30. </description>
+      <latitude>59.8644658743957</latitude>
+      <longitude>17.644286911061727</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1308063" priority="3">
+      <createddate>2014-12-10T10:55:57.053</createddate>
+      <title>Uppsala- Örbyhus</title>
+      <exactlocation />
+      <description>Tågtrafiken åter igång sedan kl 10:30. </description>
+      <latitude>59.8644658743957</latitude>
+      <longitude>17.644286911061727</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1308063" priority="3">
+      <createddate>2014-12-10T10:55:57.053</createddate>
+      <title>Uppsala- Örbyhus</title>
+      <exactlocation />
+      <description>Tågtrafiken åter igång sedan kl 10:30. </description>
+      <latitude>59.8644658743957</latitude>
+      <longitude>17.644286911061727</longitude>
+      <category>1</category>
+      <subcategory>Tåg</subcategory>
+    </message>
+    <message id="1306339" priority="4">
+      <createddate>2014-12-10T11:09:20.787</createddate>
+      <title>Blodmobilen</title>
+      <exactlocation>Volvo SA Gustav Larssons väg</exactlocation>
+      <description>10/12 08:30-15:00.</description>
+      <latitude>57.757404462672142</latitude>
+      <longitude>11.882504556327131</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1304204" priority="3">
+      <createddate>2014-12-10T11:33:44.49</createddate>
+      <title>Gränna-Visingsö</title>
+      <exactlocation />
+      <description>Förseningar i färjetrafiken under onsdagen p.g.a. hård vind. Braheborg är tagen ur trafik. Ebba Brahe ersätter, vilket innebär reducerad kapacitet. Gäller t o m den 12/12.</description>
+      <latitude>58.034072875976562</latitude>
+      <longitude>14.349037170410156</longitude>
+      <category>1</category>
+      <subcategory>Färja</subcategory>
+    </message>
+    <message id="1307859" priority="3">
+      <createddate>2014-12-10T13:11:54.1</createddate>
+      <title>Lv 975  Arnöleden, i båda riktningar.</title>
+      <exactlocation />
+      <description>Åter öppen för all trafik.</description>
+      <latitude>59.499851226806641</latitude>
+      <longitude>17.146011352539063</longitude>
+      <category>1</category>
+      <subcategory>Färja</subcategory>
+    </message>
+    <message id="1263779" priority="3">
+      <createddate>2014-12-10T13:30:18.227</createddate>
+      <title>Uppsala län</title>
+      <exactlocation />
+      <description>Lokal ishalka.</description>
+      <latitude>59.96126</latitude>
+      <longitude>17.78068</longitude>
+      <category>0</category>
+      <subcategory>Halkvarning</subcategory>
+    </message>
+    <message id="1308216" priority="3">
+      <createddate>2014-12-10T13:42:41.837</createddate>
+      <title>Rv 26 Gislaved-Smålandsstenar</title>
+      <exactlocation>Ca 2 km söder om Gislaved</exactlocation>
+      <description>Vägen fri att passera igen. </description>
+      <latitude>57.246677398681641</latitude>
+      <longitude>13.462804794311523</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1308206" priority="3">
+      <createddate>2014-12-10T13:46:46.537</createddate>
+      <title>Lv 137 Ölandsbron</title>
+      <exactlocation />
+      <description>Ölandsbron nu öppen igen för all trafik. </description>
+      <latitude>56.67327880859375</latitude>
+      <longitude>16.424945831298828</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1308231" priority="3">
+      <createddate>2014-12-10T13:52:58.157</createddate>
+      <title>Lv321 Hoverberg-Vigge</title>
+      <exactlocation>Strax söder om Brattmon. </exactlocation>
+      <description>Trafikolycka. </description>
+      <latitude>62.811737446505028</latitude>
+      <longitude>14.427354955252568</longitude>
+      <category>0</category>
+      <subcategory>Trafikolycka</subcategory>
+    </message>
+    <message id="1304354" priority="3">
+      <createddate>2014-12-10T13:57:38.287</createddate>
+      <title>Vilhelmina</title>
+      <exactlocation />
+      <description>Blodbussen står vid Vilhelminas hälsocentral onsdag 10/12 kl 9:30-12, 13:30-17 och 17:30-19:00.
+Torsdag 11/12 8:30-12:00.</description>
+      <latitude>63.763658379152346</latitude>
+      <longitude>20.443997051628063</longitude>
+      <category>3</category>
+      <subcategory>Hälsa och sjukvård</subcategory>
+    </message>
+    <message id="1307077" priority="2">
+      <createddate>2014-12-10T13:59:19.217</createddate>
+      <title>E10 Gällivare-Skaulo</title>
+      <exactlocation>Vid Moskojärvi</exactlocation>
+      <description>Bärgninsgarbetet inleds kl ca kl 14:40. Vägen kommer från och till att vara avstängd. </description>
+      <latitude>67.38105107706177</latitude>
+      <longitude>21.078097424459735</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1308299" priority="3">
+      <createddate>2014-12-10T14:05:29.147</createddate>
+      <title>E6 Strömstad-Tanumshede</title>
+      <exactlocation>Sältenmotet (109)-Lurmotet (108), mot Tanumshede</exactlocation>
+      <description>Två stillastående lastbilar. </description>
+      <latitude>58.843406677246094</latitude>
+      <longitude>11.281962394714355</longitude>
+      <category>0</category>
+      <subcategory>Trafikstörning</subcategory>
+    </message>
+    <message id="1307449" priority="3">
+      <createddate>2014-12-10T14:07:18.99</createddate>
+      <title>Varning klass 1 kulingvarning</title>
+      <exactlocation>Vänern</exactlocation>
+      <description>Natten mot onsdag syd eller sydvästliga vindar 14-18 m/s. Onsdag eftermiddag sydväst och tidvis 14 m/s.
+</description>
+      <latitude>58.529467776249028</latitude>
+      <longitude>13.230521566037661</longitude>
+      <category>3</category>
+      <subcategory>Väder</subcategory>
+    </message>
+  </messages>
+</sr>

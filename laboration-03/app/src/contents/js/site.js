@@ -130,7 +130,7 @@ site.trafficMessageRenderer = function(trafficMessages) {
 		    /* initiate plugin */
 		    $("#paginationHolder").jPages({
 		        containerID : "trafficMessages",
-		        perPage : 5
+		        perPage : 10
 		    });
 		    /* on select change */
 		    $("select").change(function(){
@@ -282,8 +282,13 @@ site.TrafficMessageService = function() {
 		$.ajax({
 			url : "index.php?action=getNewTrafficMessages",
 			async : false
-		}).done(function(data) {
-			var data = jQuery.parseJSON(data);
+		}).done(function(rawData) {
+			console.log(rawData);
+			
+			var data = jQuery.parseJSON(rawData);
+			
+			console.log(data);
+			
 			for (var object in data.messages) {
 				var trafficMessageRaw = data.messages[object];
 				trafficMessages.push(new site.TrafficMessage(trafficMessageRaw));

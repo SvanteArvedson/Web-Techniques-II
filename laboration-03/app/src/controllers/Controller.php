@@ -32,12 +32,14 @@ class Controller {
      * @param $view \views\View
      */
     private function displayPage(\views\View $view) {
-        $viewModel = null;
-        $view -> display($viewModel);
+        $view -> display();
     }
 
+    /**
+     * Called with AJAX request
+     */
     private function sendNewTrafficMessages() {
-        //TODO: Fetch string from service class
-        echo file_get_contents("data/result.json");
+        $webService = new \models\SrApiWebService();
+        echo $webService -> getTrafficMessages();
     }
 }
