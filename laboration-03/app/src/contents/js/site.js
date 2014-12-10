@@ -55,7 +55,6 @@ site = function() {
 					removeClassActive();
 					node.attr("class", "btn btn-default active");
 					renderTrafficMessages(category);
-					
 					return false;
 				}
 			});
@@ -66,6 +65,10 @@ site = function() {
 	function renderTrafficMessages(category) {
 		trafficMessageRenderer.renderTrafficMessages(category);
 		mapService.renderTrafficMessages(category);
+	};
+	
+	this.startAnimation = function(trafficMessageId) {
+		mapService.startAnimation(trafficMessageId);
 	};
 	
 	// public, main function for application
@@ -87,12 +90,16 @@ site.trafficMessageRenderer = function(trafficMessages) {
 			var dateString = trafficMessage.date.toLocaleString();
 			
 			var trafficMessagePanel = {
+				id: trafficMessage.id,
+				
 				category: trafficMessage.category,
 				
 				html: "<li>" +
-							"<div class='panel panel default'>" +
+							"<div id='" + trafficMessage.id + "' class='panel panel-default'>" +
+								"<div class='panel-heading'>" +
+									"<h2>" + dateString + ", " + trafficMessage.title + "</h2>" +
+								"</div>" +
 								"<div class='panel-body trafficMessage'>" +
-									"<h2><i>" + dateString + "</i>, " + trafficMessage.title + "</h2>" +
 									"<p><i>" + trafficMessage.category + " - " + trafficMessage.subcategory + "</i></p>" +
 									"<p>" + trafficMessage.exactlocation + "</p>" + 
 									"<p>" + trafficMessage.description + "</p>" +
@@ -100,10 +107,22 @@ site.trafficMessageRenderer = function(trafficMessages) {
 		 					"<div>" +
 	 					"</li>"
 			};
+
 		 	ret.push(trafficMessagePanel);
 		}
 		return ret;
 	};
+	
+	// private
+	function createTrafficMessagePanelClickEvents(trafficMessagePanels) {
+		for (var index in trafficMessagePanels) {
+			var trafficMessagePanel = trafficMessagePanels[index];
+			
+			$("#" + trafficMessagePanel.id).click(function(event){
+				site.startAnimation($(this).attr("id"));
+			});
+		}
+	}
 	
 	// private
 	function initiateJPages() {
@@ -147,6 +166,9 @@ site.trafficMessageRenderer = function(trafficMessages) {
 			}
 		}
 		$("#trafficMessages").html(HTMLstring);
+		
+		createTrafficMessagePanelClickEvents(trafficMessagePanels);
+		
 		initiateJPages();
 	};
 };
@@ -203,9 +225,11 @@ site.MapService = function(canvasNode, trafficMessages) {
 				),
 				title : trafficMessage.title
 			});
+			
+			marker.id = trafficMessage.id;
 			marker.infoWindowContent = createInfoWindowContent(trafficMessage);
 			marker.category = trafficMessage.category;
-			
+
 			google.maps.event.addListener(marker, 'click', function() {
 				infoWindow.setContent(this.infoWindowContent);
 				infoWindow.open(map, this);
@@ -213,9 +237,27 @@ site.MapService = function(canvasNode, trafficMessages) {
 			
 			ret.push(marker);
 		}
-		
+
 		return ret;
 	}
+
+	// private
+	function stopAnimation(marker) {
+		setTimeout(function() {
+			marker.setAnimation(null);
+		}, 2200);	
+	}
+
+	// public
+	this.startAnimation = function(trafficMessageId) {
+		for (var index in markers) {
+			var marker = markers[index];
+			if (marker.id == trafficMessageId) {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+				stopAnimation(marker);
+			}
+		}
+	};
 
 	// public
 	this.renderTrafficMessages = function(category) {
@@ -233,11 +275,8 @@ site.MapService = function(canvasNode, trafficMessages) {
 
 site.TrafficMessageService = function() {
 	// private
-	var that = this;
-	
-	// private
 	var trafficMessages = [];
-
+	
 	// private
 	function fetchNewTrafficMessages() {
 		$.ajax({
@@ -246,17 +285,8 @@ site.TrafficMessageService = function() {
 		}).done(function(data) {
 			var data = jQuery.parseJSON(data);
 			for (var object in data.messages) {
-				var message = data.messages[object];
-				trafficMessages.push(new site.TrafficMessage(
-					message.title, 
-					message.latitude, 
-					message.longitude, 
-					message.exactlocation, 
-					message.createddate, 
-					message.category,
-					message.subcategory,
-					message.description
-				));
+				var trafficMessageRaw = data.messages[object];
+				trafficMessages.push(new site.TrafficMessage(trafficMessageRaw));
 			}
 		}).fail(function() {
 			//TODO: add proper error handling
@@ -266,21 +296,21 @@ site.TrafficMessageService = function() {
 
 	// public
 	this.getTrafficMessages = function() {
-		if (trafficMessages.length < 1) {
-			fetchNewTrafficMessages();
-		}
+		fetchNewTrafficMessages();
 		return trafficMessages;
 	};
 };
 
 // Constructor
-site.TrafficMessage = function(title, latitude, longitude, exactlocation, date, category, subcategory, description) {
-	this.title = title;
-	this.latitude = latitude;
-	this.longitude = longitude;
-	this.exactlocation = exactlocation;
-	this.date = new Date(parseInt(date.match(/(\d+)/)[0]));
-	switch(category) {
+site.TrafficMessage = function(trafficMessageRaw) {
+	this.id = trafficMessageRaw.id;
+	this.title = trafficMessageRaw.title;
+	this.latitude = trafficMessageRaw.latitude;
+	this.longitude = trafficMessageRaw.longitude;
+	this.exactlocation = trafficMessageRaw.exactlocation;
+	var dateAsString = trafficMessageRaw.createddate.match(/(\d+)/)[0];
+	this.date = new Date(parseInt(dateAsString));
+	switch(trafficMessageRaw.category) {
 	case 0:
 		this.category = "Vägtrafik";
 		break;
@@ -294,6 +324,6 @@ site.TrafficMessage = function(title, latitude, longitude, exactlocation, date, 
 		this.category = "Övrigt";
 
 	}
-	this.subcategory = subcategory;
-	this.description = description;
+	this.subcategory = trafficMessageRaw.subcategory;
+	this.description = trafficMessageRaw.description;
 };

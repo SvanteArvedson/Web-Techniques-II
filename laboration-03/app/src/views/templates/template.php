@@ -10,9 +10,11 @@
     </head>
     <body>
         <main class="container">
-            <header class="row">
-                <h1 class="col-xs-12">Laboration 3</h1>
-            </header>
+            <div class="row">
+                <header class="col-xs-12">
+                    <h1 class="page-header">Laboration 3 - Svante Arvedson</h1>
+                </header>
+            </div>
             <div class="row">
                 <nav>
                     <div id="sortButtons" class="btn-group" role="group">
@@ -25,17 +27,17 @@
                 </nav>
             </div>
             <section class="row">
-                <div id="map-canvas" class="col-xs-6">
+                <div id="map-canvas" class="col-xs-7">
                     <img class="ajax-loader center-block" src="<?php echo dirname($_SERVER['PHP_SELF']) . "/src/contents/img/ajax-loader.gif"; ?>" />
                 </div>
-                <div class="col-xs-6">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="paginationDiv">
-                                <ul id="paginationHolder" class="pagination"></ul>
-                            </div>
+                <div class="col-xs-5">
+                    <div class="col-xs-12">
+                        <div class="paginationDiv">
+                            <ul id="paginationHolder" class="pagination"></ul>
                         </div>
-                        <div class="col-xs-12">
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="trafficMessagesContainer">
                             <ul id="trafficMessages"></ul>
                         </div>
                     </div>

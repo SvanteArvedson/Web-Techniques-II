@@ -5,7 +5,7 @@ body {
 nav {
 	width: auto;
 	text-align: center;
-	padding: 15px 0;
+	padding: 15px 0 45px;
 }
 
 nav div.btn-group {
@@ -32,7 +32,7 @@ nav div.btn-group a.active {
 }
 
 #map-canvas {
-	height: 900px;
+	height: 1000px;
 	background-color: #d3d3d3;
 }
 
@@ -40,8 +40,27 @@ nav div.btn-group a.active {
 	margin-top: 217px;
 }
 
+#trafficMessagesContainer {
+	width: 100%;
+	max-height: 941px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
 #trafficMessages {
 	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.panel {
+	cursor: pointer;
+}
+
+.panel .panel-heading h2 {
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 .trafficMessage h2 {
@@ -52,6 +71,10 @@ nav div.btn-group a.active {
 .paginationDiv {
 	width: 100%;
 	text-align: center;
+}
+
+#paginationHolder {
+	margin-top: 0;
 }
 
 .jp-invisible { 
