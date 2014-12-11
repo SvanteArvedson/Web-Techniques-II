@@ -49,4 +49,4 @@ i DOM:en.
 Jag har minimerat mina css och javascriptfiler. Jag har använt CDN för att 
 länka in jQuery och Bootstrap. Jag har lagt till en *ajax-loader* som visas 
 innan kartan har laddats in, egentligen inte en optimeringsåtgärd men det 
-gör att aplikationen blir mer användarvänlig.
+gör att applikationen blir mer användarvänlig.
