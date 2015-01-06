@@ -1,0 +1,37 @@
+﻿@using Weather.Domain.Services.YrNo;
+
+@model Weather.App.ViewModels.ForecastWeatherViewModel
+
+@{
+    ViewBag.Title = "- Väderlek";
+}
+
+<div class="row">
+    <div class="text-center col-xs-12">
+        <h2>Väderlek för <i>@Model.Name, @Model.Region</i></h2>
+
+        <table id="weather-forecast-table">
+            <tr>
+                <th>idag</th>
+                <th>imorgon</th>
+                <th>@Model.Forecasts[2].Day</th>
+                <th>@Model.Forecasts[3].Day</th>
+                <th>@Model.Forecasts[4].Day</th>
+            </tr>
+            <tr>
+                <td><img src="@Model.Forecasts[0].ImageUrl" alt="@Model.Forecasts[0].ImageAlt" title="@Model.Forecasts[0].ImageAlt" /></td>
+                <td><img src="@Model.Forecasts[1].ImageUrl" alt="@Model.Forecasts[1].ImageAlt" title="@Model.Forecasts[2].ImageAlt" /></td>
+                <td><img src="@Model.Forecasts[2].ImageUrl" alt="@Model.Forecasts[2].ImageAlt" title="@Model.Forecasts[2].ImageAlt" /></td>
+                <td><img src="@Model.Forecasts[3].ImageUrl" alt="@Model.Forecasts[3].ImageAlt" title="@Model.Forecasts[3].ImageAlt" /></td>
+                <td><img src="@Model.Forecasts[4].ImageUrl" alt="@Model.Forecasts[4].ImageAlt" title="@Model.Forecasts[4].ImageAlt" /></td>
+            </tr>
+            <tr>
+                <td>@String.Format("{0} °C", Model.Forecasts[0].Temperature)</td>
+                <td>@String.Format("{0} °C", Model.Forecasts[1].Temperature)</td>
+                <td>@String.Format("{0} °C", Model.Forecasts[2].Temperature)</td>
+                <td>@String.Format("{0} °C", Model.Forecasts[3].Temperature)</td>
+                <td>@String.Format("{0} °C", Model.Forecasts[4].Temperature)</td>
+            </tr>
+        </table>
+    </div>
+</div>

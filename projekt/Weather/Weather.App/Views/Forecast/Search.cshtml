@@ -1,0 +1,31 @@
+﻿@using Weather.Domain.Entities
+
+@model Weather.App.ViewModels.ForecastSearchViewModel
+
+@{
+    ViewBag.Title = "- Sökresultat";
+}
+<div class="row">
+    <div class="text-center col-xs-12">
+        <h2 >Sökresultat</h2>
+        
+        @if (@Model.Places != null)
+        {
+            <p>Sökningen på <i>@ViewBag.Search</i> gav flera träffar. Välj en av platserna i listan.</p>
+            <ul class="list-unstyled">
+                @foreach (Place place in Model.Places)
+                {
+                    <li>
+                        @Html.ActionLink("" + place.Name + ", " + place.Region, "Weather",
+                                new { region = place.Region, name = place.Name })
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Sökningen på <i>@ViewBag.Search</i> gav inga träffar.</p>
+        }
+        
+    </div>
+</div>
