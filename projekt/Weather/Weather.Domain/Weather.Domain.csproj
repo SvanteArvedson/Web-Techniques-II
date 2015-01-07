@@ -110,11 +110,6 @@
     <Compile Include="Entities\Place.cs" />
     <Compile Include="Entities\Search.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201501062202038_InitialCreate.cs" />
-    <Compile Include="Migrations\201501062202038_InitialCreate.Designer.cs">
-      <DependentUpon>201501062202038_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PersistentStorage\IRepository.cs" />
     <Compile Include="PersistentStorage\IUnitOfWork.cs" />
     <Compile Include="PersistentStorage\Repository.cs" />
@@ -133,11 +128,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501062202038_InitialCreate.resx">
-      <DependentUpon>201501062202038_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

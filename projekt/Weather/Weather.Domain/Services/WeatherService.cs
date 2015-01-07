@@ -41,12 +41,12 @@ namespace Weather.Domain
 
             if (searchObject != null)
             {
-                if (searchObject.NextUpdate <= DateTime.Now)
+                if (searchObject.NextUpdate < DateTime.Now)
                 {
                     // Delete old place objects
                     foreach (Place place in searchObject.Places.ToList())
                     {
-                        _unitOfWork.PlaceRepository.Delete(place.Id);
+                        _unitOfWork.PlaceRepository.Delete(place.PlaceId);
                     }
 
                     // Add new Places and new NextUpdate
@@ -88,12 +88,12 @@ namespace Weather.Domain
 
             if (placeObject != null)
             {
-                if (placeObject.NextUpdate <= DateTime.Now)
+                if (placeObject.NextUpdate < DateTime.Now)
                 {
                     // Delete old forecasts
                     foreach (Forecast forecast in placeObject.Forecasts.ToList())
                     {
-                        _unitOfWork.ForecastRepository.Delete(forecast.Id);
+                        _unitOfWork.ForecastRepository.Delete(forecast.ForecastId);
                     }
 
                     // Add new Forecasts and new NextUpdate

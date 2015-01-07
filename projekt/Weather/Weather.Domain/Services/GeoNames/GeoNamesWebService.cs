@@ -54,7 +54,8 @@ namespace Weather.Domain.Services.GeoNames
                     {
                         Country = "Sverige",
                         Region = geoname.Element("adminName1").Value,
-                        Name = geoname.Element("toponymName").Value
+                        Name = geoname.Element("toponymName").Value,
+                        NextUpdate = DateTime.Now
                     }).ToList();
         }
     }

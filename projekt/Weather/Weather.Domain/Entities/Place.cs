@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +8,7 @@ namespace Weather.Domain.Entities
     public class Place
     {
         [Key]
-        public int Id { get; set; }
+        public int PlaceId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -22,7 +23,7 @@ namespace Weather.Domain.Entities
         public string Country { get; set; }
 
         [Required]
-        public System.DateTime NextUpdate { get; set; }
+        public DateTime NextUpdate { get; set; }
 
         [Required]
         public int SearchId { get; set; }
@@ -31,7 +32,6 @@ namespace Weather.Domain.Entities
 
         public virtual ICollection<User> Users { get; set; }
 
-        [ForeignKey("Id")]
         public virtual Search Search { get; set; }
 
         public Place()

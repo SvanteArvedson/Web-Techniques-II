@@ -7,7 +7,7 @@ namespace Weather.Domain.Entities
     public class Search
     {
         [Key]
-        public int Id { get; set; }
+        public int SearchId { get; set; }
 
         [Required]
         [StringLength(50)]

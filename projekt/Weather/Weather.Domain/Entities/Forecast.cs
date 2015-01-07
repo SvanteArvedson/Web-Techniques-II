@@ -11,7 +11,7 @@ namespace Weather.Domain.Entities
     public class Forecast
     {
         [Key]
-        public int Id { get; set; }
+        public int ForecastId { get; set; }
 
         [Required]
         [Range(0, 3)]
@@ -37,7 +37,6 @@ namespace Weather.Domain.Entities
         [Required]
         public int PlaceId { get; set; }
 
-        [ForeignKey("Id")]
         public virtual Place Place { get; set; }
     }
 }
