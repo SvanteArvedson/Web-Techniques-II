@@ -4,7 +4,7 @@
 }
 
 .container {
-    padding: 20px 20px 5px;
+    padding: 5px 20px;
     background-color: #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -13,6 +13,10 @@
 
 #page-head {
     margin: 10px 0 20px;
+}
+
+#account-bar {
+    margin-right: -10px;
 }
 
 #page-head-image {

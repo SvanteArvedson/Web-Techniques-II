@@ -173,6 +173,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +181,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AccountLoginViewModel.cs" />
     <Compile Include="ViewModels\ForecastSearchViewModel.cs" />
     <Compile Include="ViewModels\ForecastWeatherViewModel.cs" />
     <Compile Include="ViewModels\WeatherForecastViewData.cs" />
@@ -196,6 +198,7 @@
     <Content Include="Views\Forecast\Index.cshtml" />
     <Content Include="Views\Forecast\Search.cshtml" />
     <Content Include="Views\Forecast\Weather.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

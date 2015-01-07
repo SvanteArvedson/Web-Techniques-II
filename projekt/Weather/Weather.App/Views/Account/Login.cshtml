@@ -1,0 +1,56 @@
+﻿@model Weather.App.ViewModels.AccountLoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Logga in
+            </div>
+            <div class="text-center panel-body">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.Label("Användarnamn", new { @for = "username", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Användarnamn" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Lösenord", new { @for = "password", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "Lösenord" })
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Logga in" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Registrera nytt konto
+            </div>
+            <div class="text-center panel-body">
+                @using (Html.BeginForm("Create", "Account", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.Label("Användarnamn", new { @for = "username", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Användarnamn" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Epost", new { @for = "email", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control", placeholder = "Epost" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Lösenord", new { @for = "password", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "Lösenord" })
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Registrera konto" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

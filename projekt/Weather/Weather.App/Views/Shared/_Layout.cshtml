@@ -14,6 +14,9 @@
 
         <header>
             <div class="row">
+                <div class="text-right col-xs-12">
+                    @Html.ActionLink("Logga in", "Login", "Account", null, new { id = "account-bar" })
+                </div>
                 <div class="col-xs-12">
                     <h1 id="page-head" class="text-center">
                         <img id="page-head-image" src="~/Content/Images/Logo.png" alt="Kolla vädret" /></h1>
@@ -28,7 +31,7 @@
                     {
                         <div class="input-group">
                             @Html.Label("Sök på ort eller plats", new { @for = "search", @class = "sr-only" })
-                            @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Sök ort eller plats" })
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Sök ort eller plats" })
                             <span class="input-group-btn">
                                 <input class="btn btn-primary" type="submit" value="Sök" />
                             </span>

@@ -1,4 +1,7 @@
 ﻿using Owin;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,11 @@ namespace Weather.App
     {
         public void Configuration(IAppBuilder app)
         {
-            // Empty for now!!!
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Konto/Inloggning")
+            });
         }
     }
 }

@@ -15,6 +15,17 @@ namespace Weather.App
                 new { httpMethod = new HttpMethodConstraint("GET") }
             );
 
+            routes.MapRoute("Login",
+                "Konto/Inloggning",
+                new { controller = "Account", action = "Login" }
+            );
+
+            routes.MapRoute("CreateAccount",
+                "Konto/SkapaKonto",
+                new { controller = "Account", action = "Create" },
+                new { httpMethod = new HttpMethodConstraint("POST") }
+            );
+
             routes.MapRoute("Error", 
                 "Fel/{code}", 
                 new { controller = "Error", action = "Error" },
