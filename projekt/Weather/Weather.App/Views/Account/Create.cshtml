@@ -1,31 +1,19 @@
-﻿@model Weather.App.ViewModels.AccountLoginViewModel
+﻿@model Weather.App.ViewModels.AccountCreateViewModel
 
 @{
-    ViewBag.Title = "- Logga in";
+    ViewBag.Title = "- Nytt konto";
 }
-
-<div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <p>
-            Har du inget konto ännu?
-            @Html.ActionLink("Registrera dig här", "Create", "Account")
-        </p>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Logga in
+                Registrera nytt konto
             </div>
             <div class="text-center panel-body">
-                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                @using (Html.BeginForm("Create", "Account", FormMethod.Post))
                 {
-                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
-
                     @Html.AntiForgeryToken()
-
                     @Html.ValidationSummary(false)
 
                     <div class="form-group">
@@ -33,10 +21,14 @@
                         @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Användarnamn", value = Model.Name })
                     </div>
                     <div class="form-group">
+                        @Html.Label("Epost", new { @for = "email", @class = "sr-only" })
+                        @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control", placeholder = "Epost", value = Model.Email })
+                    </div>
+                    <div class="form-group">
                         @Html.Label("Lösenord", new { @for = "password", @class = "sr-only" })
                         @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "Lösenord" })
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Logga in" />
+                    <input type="submit" class="btn btn-primary" value="Registrera konto" />
                 }
             </div>
         </div>

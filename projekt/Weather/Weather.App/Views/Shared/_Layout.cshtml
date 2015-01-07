@@ -1,6 +1,4 @@
-﻿@using System.Web.Optimization
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="utf-8" />
@@ -12,14 +10,25 @@
 <body>
     <div class="container">
 
+        <aside>
+            <div class="row">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.Partial("~/Views/Shared/_AuthenticatedAccountBar.cshtml")
+                }
+                else
+                {
+                    @Html.Partial("~/Views/Shared/_UnauthenticatedAccountBar.cshtml")
+                }
+            </div>
+        </aside>
+
         <header>
             <div class="row">
-                <div class="text-right col-xs-12">
-                    @Html.ActionLink("Logga in", "Login", "Account", null, new { id = "account-bar" })
-                </div>
                 <div class="col-xs-12">
                     <h1 id="page-head" class="text-center">
-                        <img id="page-head-image" src="~/Content/Images/Logo.png" alt="Kolla vädret" /></h1>
+                        <img id="page-head-image" src="~/Content/Images/Logo.png" alt="Kolla vädret" />
+                    </h1>
                 </div>
             </div>
         </header>
@@ -39,6 +48,17 @@
                     }
                 </div>
             </div>
+
+            <div class="row">
+                @if (TempData["Success"] != null)
+                {
+                    @Html.Partial("~/Views/Shared/_SuccessMessage.cshtml", TempData["Success"].ToString())
+                }
+                @if (TempData["Error"] != null)
+                {
+                    @Html.Partial("~/Views/Shared/_ErrorMessage.cshtml", TempData["Error"].ToString())
+                }
+            </div>
         </aside>
 
         <main>
@@ -56,6 +76,7 @@
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -20,10 +20,14 @@ namespace Weather.App
                 new { controller = "Account", action = "Login" }
             );
 
+            routes.MapRoute("Logout",
+                "Konto/Utloggning",
+                new { controller = "Account", action = "Logout" }
+            );
+
             routes.MapRoute("CreateAccount",
-                "Konto/SkapaKonto",
-                new { controller = "Account", action = "Create" },
-                new { httpMethod = new HttpMethodConstraint("POST") }
+                "Konto/Nytt",
+                new { controller = "Account", action = "Create" }
             );
 
             routes.MapRoute("Error", 
