@@ -5,6 +5,11 @@ namespace Weather.Domain.Entities
 {
     public class User : IdentityUser
     {
-        public virtual ICollection<Place> Places { get; set; }
+        public virtual ICollection<FavouritePlace> FavouritePlace { get; set; }
+
+        public User()
+        {
+            this.FavouritePlace = new HashSet<FavouritePlace>();
+        }
     }
 }

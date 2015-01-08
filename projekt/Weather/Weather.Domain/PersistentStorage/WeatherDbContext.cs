@@ -15,6 +15,7 @@ namespace Weather.Domain.PersistentStorage
         public DbSet<Search> Serches { get; set; }
         public DbSet<Place> Places { get; set; }
         public DbSet<Forecast> Forecasts { get; set; }
+        public DbSet<FavouritePlace> FavouritePlaces { get; set; }
 
         public WeatherDbContext()
             : base("WeatherConnectionString")
@@ -26,8 +27,6 @@ namespace Weather.Domain.PersistentStorage
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.HasDefaultSchema("appSchema");
-
-            modelBuilder.Entity<User>().HasMany(x => x.Places).WithMany(x => x.Users);
 
             base.OnModelCreating(modelBuilder);
         }

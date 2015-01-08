@@ -30,6 +30,14 @@
                     </div>
                     <input type="submit" class="btn btn-primary" value="Registrera konto" />
                 }
+
+                <p class="seperation-text">eller</p>
+
+                @using (Html.BeginForm("GoogleLogin", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" class="btn btn-primary" value="Registrera konto med Google+" />
+                }
             </div>
         </div>
     </div>

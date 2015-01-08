@@ -62,3 +62,8 @@
     font-style: italic;
     font-size: 1rem;
 }
+
+.seperation-text {
+    margin: 20px 0;
+    font-weight: bold;
+}

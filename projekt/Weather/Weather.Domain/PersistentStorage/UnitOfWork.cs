@@ -15,6 +15,7 @@ namespace Weather.Domain.PersistentStorage
         private IRepository<Search> _searchRepository;
         private IRepository<Place> _placeRepository;
         private IRepository<Forecast> _forecastRepository;
+        private IRepository<FavouritePlace> _favouritePlaceRepository;
         private UserManager<User> _userManager;
 
         private bool _dispose = false;
@@ -32,6 +33,11 @@ namespace Weather.Domain.PersistentStorage
         public IRepository<Forecast> ForecastRepository
         {
             get { return _forecastRepository ?? (_forecastRepository = new Repository<Forecast>(_context)); }
+        }
+
+        public IRepository<FavouritePlace> FavouritePlaceRepository
+        {
+            get { return _favouritePlaceRepository ?? (_favouritePlaceRepository = new Repository<FavouritePlace>(_context)); }
         }
 
         public UserManager<User> UserManager

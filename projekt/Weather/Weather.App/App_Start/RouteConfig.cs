@@ -20,6 +20,17 @@ namespace Weather.App
                 new { controller = "Account", action = "Login" }
             );
 
+            routes.MapRoute("LoginAccountGoogle",
+                "Konto/InloggningGoogle",
+                new { controller = "Account", action = "GoogleLogin" },
+                new { httpMethod = new HttpMethodConstraint("POST") }
+            );
+
+            routes.MapRoute("LoginAccountGoogleCallback",
+                "Konto/InloggningGoogleCallback",
+                new { controller = "Account", action = "GoogleLoginCallback" }
+            );
+
             routes.MapRoute("Logout",
                 "Konto/Utloggning",
                 new { controller = "Account", action = "Logout" }

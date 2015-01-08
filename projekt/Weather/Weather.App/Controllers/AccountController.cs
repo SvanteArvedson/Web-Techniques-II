@@ -9,6 +9,7 @@ using Weather.Domain.PersistentStorage;
 using Microsoft.AspNet.Identity;
 using System.Security.Claims;
 using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Weather.App.Controllers
 {
@@ -117,7 +118,12 @@ namespace Weather.App.Controllers
                 IdentityResult result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    TempData["Success"] = String.Format("Kontot för {0} har skapats", model.Name);
+                    TempData["Success"] = String.Format("Kontot {0} har skapats", model.Name);
+
+                    ClaimsIdentity identity = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+
                     return RedirectToAction("Index", "Forecast");
                 }
                 else
@@ -126,6 +132,62 @@ namespace Weather.App.Controllers
                 }
             }
             return View(model);
+        }
+
+        //
+        // POST: /Konto/InloggningGoogle
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GoogleLogin(string returnUrl = "~/")
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                TempData["Error"] = "Du måste vara utloggad för att logga in";
+                return RedirectToAction("Index", "Forecast");
+            }
+
+            var properties = new AuthenticationProperties
+            {
+                RedirectUri = Url.Action("GoogleLoginCallback", new { returnUrl = returnUrl })
+            };
+            HttpContext.GetOwinContext().Authentication.Challenge(properties, "Google");
+            return new HttpUnauthorizedResult();
+        }
+
+        // Callback method for google login
+        public ActionResult GoogleLoginCallback(string returnUrl = "~/")
+        {
+            ExternalLoginInfo loginInfo = AuthenticationManager.GetExternalLoginInfo();
+            User user = UserManager.Find(loginInfo.Login);
+            if (user == null)
+            {
+                user = new User
+                {
+                    Email = loginInfo.Email,
+                    UserName = loginInfo.DefaultUserName,
+                };
+                IdentityResult result = UserManager.Create(user);
+                if (!result.Succeeded)
+                {
+                    TempData["Error"] = "Ett fel inträffade när ditt konto skapades";
+                    return RedirectToAction("Index", "Forecast");
+                }
+                else
+                {
+                    result = UserManager.AddLogin(user.Id, loginInfo.Login);
+                    if (!result.Succeeded)
+                    {
+                        TempData["Error"] = "Ett fel inträffade när ditt konto skapades";
+                        return RedirectToAction("Index", "Forecast");
+                    }
+                }
+            }
+
+            ClaimsIdentity identity = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            identity.AddClaims(loginInfo.ExternalIdentity.Claims);
+            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+
+            return Redirect(returnUrl);
         }
 
         private void AddErrorsFromResult(IdentityResult result)

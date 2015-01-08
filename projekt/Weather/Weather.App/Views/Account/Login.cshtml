@@ -38,6 +38,14 @@
                     </div>
                     <input type="submit" class="btn btn-primary" value="Logga in" />
                 }
+
+                <p class="seperation-text">eller</p>
+
+                @using (Html.BeginForm("GoogleLogin", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" class="btn btn-primary" value="Logga in med Google+" />
+                }
             </div>
         </div>
     </div>

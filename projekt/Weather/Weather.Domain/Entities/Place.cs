@@ -30,8 +30,6 @@ namespace Weather.Domain.Entities
 
         public virtual ICollection<Forecast> Forecasts { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
-
         public virtual Search Search { get; set; }
 
         public Place()
