@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using Weather.App.ViewModels;
 using Weather.Domain.Entities;
 using Weather.Domain.PersistentStorage;
-using Microsoft.AspNet.Identity;
-using System.Security.Claims;
-using Microsoft.Owin.Security;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace Weather.App.Controllers
 {
+    [OutputCache(Duration = 0)]
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
@@ -169,7 +168,7 @@ namespace Weather.App.Controllers
                 IdentityResult result = UserManager.Create(user);
                 if (!result.Succeeded)
                 {
-                    TempData["Error"] = "Ett fel inträffade när ditt konto skapades";
+                    TempData["Error"] = "Ett fel inträffade när ditt konto skulle skapas";
                     return RedirectToAction("Index", "Forecast");
                 }
                 else
@@ -177,7 +176,7 @@ namespace Weather.App.Controllers
                     result = UserManager.AddLogin(user.Id, loginInfo.Login);
                     if (!result.Succeeded)
                     {
-                        TempData["Error"] = "Ett fel inträffade när ditt konto skapades";
+                        TempData["Error"] = "Ditt konto skapades men ett fel inträffade när kontot försökte logga in";
                         return RedirectToAction("Index", "Forecast");
                     }
                 }
@@ -187,6 +186,7 @@ namespace Weather.App.Controllers
             identity.AddClaims(loginInfo.ExternalIdentity.Claims);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
+            TempData["Success"] = String.Format("Kontot {0} har skapats", user.UserName);
             return Redirect(returnUrl);
         }
 
@@ -197,5 +197,5 @@ namespace Weather.App.Controllers
                 ModelState.AddModelError(String.Empty, error);
             }
         }
-	}
+    }
 }

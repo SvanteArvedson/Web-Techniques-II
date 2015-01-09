@@ -9,6 +9,7 @@ using Weather.Domain.Entities;
 
 namespace Weather.App.Controllers
 {
+    [OutputCache(Duration = 0)]
     public class ForecastController : Controller
     {
         private IWeatherService _weatherFacade;

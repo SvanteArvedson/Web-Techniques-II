@@ -2,6 +2,7 @@
 
 namespace Weather.App.Controllers
 {
+    [OutputCache(Duration = 0)]
     public class ErrorController : Controller
     {
         // GET: /Error/{code}

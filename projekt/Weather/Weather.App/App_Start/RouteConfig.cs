@@ -64,6 +64,18 @@ namespace Weather.App
                 new { controller = "Forecast", action = "Weather" }, 
                 new { httpMethod = new HttpMethodConstraint("GET") }
             );
+
+            routes.MapRoute("Manifest",
+                "Manifest",
+                new { controller = "Offline", action = "Manifest" },
+                new { httpMethod = new HttpMethodConstraint("GET") }
+            );
+
+            routes.MapRoute("Fallback",
+                "Offline",
+                new { controller = "Offline", action = "Fallback" },
+                new { httpMethod = new HttpMethodConstraint("GET") }
+            );
         }
     }
 }

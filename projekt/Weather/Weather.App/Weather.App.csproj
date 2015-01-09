@@ -172,6 +172,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ForecastController.cs" />
+    <Compile Include="Controllers\OfflineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +213,8 @@
     <Content Include="Views\Shared\_ErrorMessage.cshtml" />
     <Content Include="Views\Shared\_AuthenticatedAccountBar.cshtml" />
     <Content Include="Views\Shared\_UnauthenticatedAccountBar.cshtml" />
+    <Content Include="Views\Offline\Manifest.cshtml" />
+    <Content Include="Views\Offline\Fallback.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

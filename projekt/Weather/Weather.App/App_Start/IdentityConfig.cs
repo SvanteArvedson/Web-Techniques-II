@@ -1,12 +1,7 @@
-﻿using Owin;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Owin.Security.Google;
+using Owin;
 
 namespace Weather.App
 {

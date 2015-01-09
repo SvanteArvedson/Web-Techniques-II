@@ -4,7 +4,7 @@
 }
 
 .container {
-    padding: 5px 20px;
+    padding: 5px 5px;
     background-color: #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -17,6 +17,7 @@
 
 #account-bar {
     margin: 0;
+    padding: 0 15px;
 }
 
 #page-head-image {
@@ -66,4 +67,8 @@
 .seperation-text {
     margin: 20px 0;
     font-weight: bold;
+}
+
+#offline-info {
+    padding: 0;
 }

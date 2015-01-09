@@ -1,0 +1,33 @@
+﻿CACHE MANIFEST
+# 8
+
+CACHE:
+# Images
+@Url.Content("~/Content/Images/Logo.png")
+
+# CSS files
+@Url.Content("~/Content/bootstrap.min.css")
+@Url.Content("~/Content/Site.css")
+
+# JS files
+@Url.Content("~/Scripts/jquery-1.10.2.min.js")
+@Url.Content("~/Scripts/jquery.unobtrusive.min.js")
+@Url.Content("~/Scripts/jquery.validate.min.js")
+@Url.Content("~/Scripts/bootstrap.min.js")
+@Url.Content("~/Scripts/site.js")
+
+# HTML files
+@Url.Action("Error", "Error", new { code = 400 })
+@Url.Action("Error", "Error", new { code = 404 })
+@Url.Action("Error", "Error", new { code = 500 })
+@Url.Action("Fallback", "Offline")
+
+NETWORK:
+*
+
+FALLBACK:
+/ @Url.Action("Fallback", "Offline")
+
+@{
+    Layout = null;
+}

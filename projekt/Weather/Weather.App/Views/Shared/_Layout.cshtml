@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
-<html lang="sv">
+<html manifest="/Manifest" lang="sv">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kolla vädret @ViewBag.Title</title>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/Content/Site.css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h1 id="page-head" class="text-center">
-                        <a href="/"><img id="page-head-image" src="~/Content/Images/Logo.png" alt="Kolla vädret" /></a>
+                        <a href="/"><img id="page-head-image" src="@Url.Content("~/Content/Images/Logo.png")" alt="Kolla vädret" /></a>
                     </h1>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                             @Html.Label("Sök på ort eller plats", new { @for = "search", @class = "sr-only" })
                             @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Sök ort eller plats" })
                             <span class="input-group-btn">
-                                <input class="btn btn-primary" type="submit" value="Sök" />
+                                <input id="search-form-submit" class="btn btn-primary" type="submit" value="Sök" />
                             </span>
                         </div>
                     }
@@ -75,8 +75,12 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/site.js")"></script>
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
