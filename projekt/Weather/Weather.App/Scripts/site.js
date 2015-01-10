@@ -7,41 +7,57 @@
     },
 
     modifyForOnline: function () {
-        // hide offinfo, show account-bar and enable forms
+        // hide offline-info, show account-bar and enable forms
         $("#account-bar").show();
         $("input").prop("disabled", false);
+        $("#offline-info").hide();
+        $("#viewedPlaces").hide();
     },
 
     modifyForOffline: function () {
-        // show offline info, hide account-bar and disable forms
+        // show offline-info, hide account-bar and disable forms
         $("#account-bar").hide();
         $("input").prop("disabled", true);
         $("<div id='offline-info' class='col-xs-12'><div class='alert alert-warning alert-dismissable' role='alert'><button type='button' class='close' data-dismiss='alert'><span>&times;</span><span class='sr-only'>Close</span></button><p>Du är just nu offline. Du kan endast se de sidor som du tidigare har varit på. Alla funktionerna är inte tillgängliga i offlineläge, exemelvis inloggning och utloggning.</p></div></div>").prependTo(".container");
+
+        // show vired places if view is index
+        if (Site.viewIsIndex) {
+            var viewedForecastsHTML = "<div id='viewedPlaces' class='row'><div class='text-center col-xs-12'><h2>Tidigare besökta sidor</h2><ul class='list-unstyled'>";
+
+            if (localStorage.getItem(Site.keyPlaces)) {
+                var urlArray = JSON.parse(localStorage.getItem(Site.keyPlaces));
+                urlArray.forEach(function (element, index, array) {
+                    element = decodeURI(element);
+                    viewedForecastsHTML += "<li><a href='" + element + "'>" + element + "</a></li>";
+                });
+            } else {
+                viewedForecastsHTML += "<li>Inga besökta sidor</li>";
+            }
+
+            viewedForecastsHTML += "</ul>";
+            $("main").append(viewedForecastsHTML);
+        }
     },
 
-    localPlaceObject: function (country, region, name) {
-        this.country = country;
-        this.region = region;
-        this.name = name;
-    },
+    saveWeatherUrl: function (weatherUrl) {
+        var urlArray;
 
-    saveLocalWeather: function(placeObject) {
-        if (!localStorage.getItem(Site.keyPlaces)) {
-            localStorage.setItem(Site.keyPlaces, new Array(20));
+        if (localStorage.getItem(Site.keyPlaces)) {
+            urlArray = JSON.parse(localStorage.getItem(Site.keyPlaces));
+        } else {
+            urlArray = [];
         }
 
-        localStorage.getItem(Site.keyPlaces).unshift(JSON.stringify(placeObject));
-
-        if (localStorage.getItem(Site.keyPlaces).length > Site.maxNbrPlaces) {
-            var nbrToRem = localStorage.getItem(Site.keyPlaces).length - Site.maxNbrPlaces;
-            localStorage.getItem(Site.keyPlaces).splice(Site.maxNbrPlaces, nbrToRem);
+        if ($.inArray(weatherUrl, urlArray) == -1) {
+            urlArray.unshift(weatherUrl);
         }
-    },
 
-    addLinksToVisitedPlaces: function() {
-        // Fix tomorrow...
-        // Render links to visited places here...
-        // also, fix fallback page.
+        if (urlArray.length > Site.maxNbrPlaces) {
+            var nbrToRem = urlArray.length - Site.maxNbrPlaces;
+            urlArray.splice(Site.maxNbrPlaces, nbrToRem);
+        }
+
+        localStorage.setItem(Site.keyPlaces, JSON.stringify(urlArray));
     }
 };
 
@@ -59,15 +75,9 @@ window.onoffline = function (e) {
 }
 
 window.onload = function (e) {
-    if (Site.isOnline) {
+    if (Site.isOnline()) {
         if (Site.viewIsWeatherForecast) {
-            var placeString = $("#place").text();
-            var placeArray = placeString.split(", ");
-            var placeObject = new Site.localPlaceObject("Sverige", placeArray[1], placeArray[0]);
-            Site.saveLocalWeather(placeObject);
-        }
-        else if (Site.viewIsIndex) {
-            Site.addLinksToVisitedPlaces();
+            Site.saveWeatherUrl(location.href);
         }
     } else {
         Site.modifyForOffline();

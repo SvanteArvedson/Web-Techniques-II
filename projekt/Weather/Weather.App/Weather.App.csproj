@@ -214,7 +214,6 @@
     <Content Include="Views\Shared\_AuthenticatedAccountBar.cshtml" />
     <Content Include="Views\Shared\_UnauthenticatedAccountBar.cshtml" />
     <Content Include="Views\Offline\Manifest.cshtml" />
-    <Content Include="Views\Offline\Fallback.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

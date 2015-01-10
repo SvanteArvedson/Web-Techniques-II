@@ -19,10 +19,5 @@ namespace Weather.App.Controllers
 
             return View();
         }
-
-        public ActionResult Fallback()
-        {
-            return View();
-        }
     }
 }
