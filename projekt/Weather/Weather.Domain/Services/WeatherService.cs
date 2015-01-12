@@ -79,7 +79,7 @@ namespace Weather.Domain
         /// <param name="region">Region name for the place</param>
         /// <param name="name">Name of the place</param>
         /// <returns>A collection of forecasts</returns>
-        public IEnumerable<Forecast> GetWeatherForecast(string region, string name)
+        public Place GetWeatherForecast(string region, string name)
         {
             Place placeObject = _unitOfWork.PlaceRepository.
                     Select(x => x.Country.ToLower() == "Sverige" &&
@@ -116,14 +116,7 @@ namespace Weather.Domain
                 }
             }
 
-            if (placeObject != null)
-            {
-                return placeObject.Forecasts;
-            }
-            else
-            {
-                return new List<Forecast>();
-            }
+            return placeObject;
         }
     }
 }

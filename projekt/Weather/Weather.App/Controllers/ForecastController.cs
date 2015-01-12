@@ -56,17 +56,15 @@ namespace Weather.App.Controllers
                 throw new HttpException(400, "Bad Request");
             }
 
-            List<Forecast> forecasts = _weatherFacade.GetWeatherForecast(region, name).ToList();
+            Place place = _weatherFacade.GetWeatherForecast(region, name);
 
-            if (forecasts.Count == 0)
+            if (place.Forecasts.Count == 0)
             {
                 return new HttpNotFoundResult();
             }
             else
             {
-                ForecastWeatherViewModel model = new ForecastWeatherViewModel(
-                    forecasts, region, name
-                );
+                ForecastWeatherViewModel model = new ForecastWeatherViewModel(place);
                 return View(model);
             }
         }

@@ -9,6 +9,7 @@
     modifyForOnline: function () {
         // hide offline-info, show account-bar and enable forms
         $("#account-bar").show();
+        $("#map-canvas").show();
         $("input").prop("disabled", false);
         $("#offline-info").hide();
         $("#viewedPlaces").hide();
@@ -19,6 +20,7 @@
         $("#account-bar").hide();
         $("input").prop("disabled", true);
         $("<div id='offline-info' class='col-xs-12'><div class='alert alert-warning alert-dismissable' role='alert'><button type='button' class='close' data-dismiss='alert'><span>&times;</span><span class='sr-only'>Close</span></button><p>Du är just nu offline. Du kan endast se de sidor som du tidigare har varit på. Alla funktionerna är inte tillgängliga i offlineläge, exemelvis inloggning och utloggning.</p></div></div>").prependTo(".container");
+        $("#map-canvas").hide();
 
         // show vired places if view is index
         if (Site.viewIsIndex) {
@@ -67,17 +69,19 @@ window.applicationCache.onupdateready = function (e) {
 }
 
 window.ononline = function (e) {
-    Site.modifyForOnline();
+    location.reload();
 }
 
 window.onoffline = function (e) {
-    Site.modifyForOffline();
+    location.reload();
 }
 
 window.onload = function (e) {
     if (Site.isOnline()) {
+        Site.modifyForOnline();
         if (Site.viewIsWeatherForecast) {
             Site.saveWeatherUrl(location.href);
+            Site.initMap();
         }
     } else {
         Site.modifyForOffline();

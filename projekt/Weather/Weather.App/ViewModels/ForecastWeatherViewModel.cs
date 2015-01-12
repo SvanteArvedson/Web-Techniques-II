@@ -15,14 +15,18 @@ namespace Weather.App.ViewModels
     {
         public string Name { get; set; }
         public string Region { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public List<Forecast> ForecastList { get; set; }
         public List<WeatherForecastViewData> Forecasts { get; set; }
 
-        public ForecastWeatherViewModel(List<Forecast> forecastList, string region, string name)
+        public ForecastWeatherViewModel(Place place)
         {
-            Name = name;
-            Region = region;
-            ForecastList = forecastList;
+            Name = place.Name;
+            Region = place.Region;
+            Latitude = place.Latitude;
+            Longitude = place.Longitude;
+            ForecastList = place.Forecasts.ToList();
             Forecasts = new List<WeatherForecastViewData>(5);
 
             for (int i = 0; i <= 4; i += 1)

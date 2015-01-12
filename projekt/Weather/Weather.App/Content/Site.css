@@ -58,6 +58,11 @@
     color: #fff;
 }
 
+#map-canvas {
+    margin-top: 25px;
+    height: 200px;
+}
+
 #credits {
     margin: 20px auto 0;
     font-style: italic;

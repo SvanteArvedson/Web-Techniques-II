@@ -55,6 +55,8 @@ namespace Weather.Domain.Services.YrNo
                 Name = xml.Element("weatherdata").Element("location").Element("name").Value,
                 Region = region,
                 Country = xml.Element("weatherdata").Element("location").Element("country").Value,
+                Latitude = Convert.ToDouble(xml.Element("weatherdata").Element("location").Element("location").Attribute("latitude").Value, new CultureInfo("en-US")),
+                Longitude = Convert.ToDouble(xml.Element("weatherdata").Element("location").Element("location").Attribute("longitude").Value, new CultureInfo("en-US")),
                 NextUpdate = DateTime.Parse(xml.Element("weatherdata").Element("meta").Element("nextupdate").Value),
                 Forecasts = (from forecast in xml.Descendants("time")
                              select new Forecast

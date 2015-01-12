@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -55,6 +56,8 @@ namespace Weather.Domain.Services.GeoNames
                         Country = "Sverige",
                         Region = geoname.Element("adminName1").Value,
                         Name = geoname.Element("toponymName").Value,
+                        Latitude = Convert.ToDouble(geoname.Element("lat").Value, new CultureInfo("en-US")),
+                        Longitude = Convert.ToDouble(geoname.Element("lng").Value, new CultureInfo("en-US")),
                         NextUpdate = DateTime.Now
                     }).ToList();
         }

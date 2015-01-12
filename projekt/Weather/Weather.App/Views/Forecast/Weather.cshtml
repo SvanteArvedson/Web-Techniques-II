@@ -36,9 +36,29 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div id="map-canvas">
+
+        </div>
+    </div>
+</div>
+
 @section scripts
 {
+    <script src="//maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleMapApiKey"]"></script>
     <script>
         Site.viewIsWeatherForecast = true;
+        Site.forecastLatitude = @System.Convert.ToString(Model.Latitude, new System.Globalization.CultureInfo("en-US"))
+        Site.forecastLongitude = @System.Convert.ToString(Model.Longitude, new System.Globalization.CultureInfo("en-US"))
+
+        Site.initMap = function () {
+            var mapOptions = {
+                zoom: 10,
+                center: new google.maps.LatLng(Site.forecastLatitude, Site.forecastLongitude)
+            };
+
+            var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
+        }
     </script>
 }
