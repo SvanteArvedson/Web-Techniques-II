@@ -65,6 +65,8 @@ namespace Weather.App.Controllers
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
+                    TempData["Success"] = String.Format("Användaren {0} är inloggad", user.UserName);
+
                     return Redirect(returnUrl);
                 }
             }
