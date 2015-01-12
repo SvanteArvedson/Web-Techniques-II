@@ -186,7 +186,7 @@ namespace Weather.App.Controllers
             identity.AddClaims(loginInfo.ExternalIdentity.Claims);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
-            TempData["Success"] = String.Format("Kontot {0} har skapats", user.UserName);
+            TempData["Success"] = String.Format("Användaren {0} är inloggad", user.UserName);
             return Redirect(returnUrl);
         }
 

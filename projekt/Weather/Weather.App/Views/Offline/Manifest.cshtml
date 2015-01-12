@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# 1
+# 2
 
 CACHE:
 # Images
@@ -17,16 +17,13 @@ CACHE:
 @Url.Content("~/Scripts/site.js")
 
 # HTML files
-@Url.Action("Error", "Error", new { code = 400 })
-@Url.Action("Error", "Error", new { code = 404 })
-@Url.Action("Error", "Error", new { code = 500 })
-@Url.Action("Fallback", "Offline")
+@Url.Content("~/Offline.html")
 
 NETWORK:
 *
 
 FALLBACK:
-/ @Url.Action("Index", "Forecast")
+/ @Url.Content("~/Offline.html")
 
 @{
     Layout = null;
