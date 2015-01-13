@@ -7,8 +7,7 @@ using System.Linq.Expressions;
 namespace Weather.Domain.PersistentStorage
 {
     /// <summary>
-    /// Generic repository for communicating with a database
-    /// Using Entity Framework
+    /// Generic repository for communicating with a database. Using Entity Framework.
     /// </summary>
     /// <typeparam name="T">A instance of a class</typeparam>
     public class Repository<T> : IRepository<T> where T : class

@@ -10,6 +10,9 @@ using Weather.Domain.Validation;
 
 namespace Weather.Domain.PersistentStorage
 {
+    /// <summary>
+    /// Context class for database communication. Used by Entity Framework.
+    /// </summary>
     internal class WeatherDbContext : IdentityDbContext<User>
     {
         public DbSet<Search> Serches { get; set; }
@@ -31,6 +34,12 @@ namespace Weather.Domain.PersistentStorage
             base.OnModelCreating(modelBuilder);
         }
 
+        /// <summary>
+        /// Validates database object before saving
+        /// </summary>
+        /// <param name="entityEntry"></param>
+        /// <param name="items"></param>
+        /// <returns></returns>
         protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
         {
             var result = base.ValidateEntity(entityEntry, items);

@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Weather.Domain.Entities
 {
+    /// <summary>
+    /// Place search
+    /// </summary>
     public class Search
     {
         [Key]

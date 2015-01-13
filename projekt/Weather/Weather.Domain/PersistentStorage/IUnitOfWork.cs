@@ -4,6 +4,9 @@ using Weather.Domain.Entities;
 
 namespace Weather.Domain.PersistentStorage
 {
+    /// <summary>
+    /// Interface in UnitOfWork pattern. Make all repositories share the same context object.
+    /// </summary>
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Search> SearchRepository { get; }

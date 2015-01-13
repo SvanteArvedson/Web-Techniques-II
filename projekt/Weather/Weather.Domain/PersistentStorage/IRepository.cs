@@ -5,6 +5,10 @@ using System.Linq.Expressions;
 
 namespace Weather.Domain.PersistentStorage
 {
+    /// <summary>
+    /// Interface for generic repository
+    /// </summary>
+    /// <typeparam name="T">Tyoe of database object</typeparam>
     public interface IRepository<T> where T : class
     {
         IEnumerable<T> Select(

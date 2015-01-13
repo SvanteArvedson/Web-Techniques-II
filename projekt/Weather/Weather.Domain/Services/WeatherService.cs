@@ -9,7 +9,7 @@ using Weather.Domain.Services.YrNo;
 namespace Weather.Domain
 {
     /// <summary>
-    /// Facade class for class library Weather Domain
+    /// Service class for getting Place and Forecast objects
     /// </summary>
     public class WeatherService : IWeatherService
     {
@@ -74,11 +74,11 @@ namespace Weather.Domain
         }
 
         /// <summary>
-        /// Returns a collection of forecasts for a place
+        /// Returns a Place object
         /// </summary>
         /// <param name="region">Region name for the place</param>
         /// <param name="name">Name of the place</param>
-        /// <returns>A collection of forecasts</returns>
+        /// <returns>A a Place object</returns>
         public Place GetWeatherForecast(string region, string name)
         {
             Place placeObject = _unitOfWork.PlaceRepository.

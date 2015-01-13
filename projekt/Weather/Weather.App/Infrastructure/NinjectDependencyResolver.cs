@@ -6,6 +6,9 @@ using Weather.Domain;
 
 namespace Weather.App.Infrastructure
 {
+    /// <summary>
+    /// Ninject handles dependency injections
+    /// </summary>
     public class NinjectDependencyResolver : IDependencyResolver
     {
         private IKernel _kernel;

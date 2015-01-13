@@ -3,6 +3,9 @@ using System.Web.Routing;
 
 namespace Weather.App
 {
+    /// <summary>
+    /// Describes application routes
+    /// </summary>
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)

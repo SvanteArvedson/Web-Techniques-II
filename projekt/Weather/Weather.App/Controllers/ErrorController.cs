@@ -2,6 +2,9 @@
 
 namespace Weather.App.Controllers
 {
+    /// <summary>
+    /// Error pages. Cached on client in offline cache
+    /// </summary>
     [OutputCache(Duration = 0)]
     public class ErrorController : Controller
     {

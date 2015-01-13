@@ -11,15 +11,28 @@ using Weather.Domain.PersistentStorage;
 
 namespace Weather.App.Controllers
 {
+    /// <summary>
+    /// Controller methods for handling user accounts
+    /// </summary>
     [OutputCache(Duration = 0)]
     public class AccountController : Controller
     {
+        /// <summary>
+        /// Repository for user tables
+        /// </summary>
         private UserManager<User> _userManager;
+
+        /// <summary>
+        /// Property returning _userManager
+        /// </summary>
         private UserManager<User> UserManager
         {
             get { return _userManager ?? (_userManager = UnitOfWork.getInstance().UserManager); }
         }
 
+        /// <summary>
+        /// Handles authentication cookies
+        /// </summary>
         private IAuthenticationManager AuthenticationManager
         {
             get { return HttpContext.GetOwinContext().Authentication; }
@@ -65,6 +78,7 @@ namespace Weather.App.Controllers
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
+                    // Right message
                     TempData["Success"] = String.Format("Användaren {0} är inloggad", user.UserName);
 
                     return Redirect(returnUrl);
@@ -119,11 +133,12 @@ namespace Weather.App.Controllers
                 IdentityResult result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    TempData["Success"] = String.Format("Kontot {0} har skapats", model.Name);
-
                     ClaimsIdentity identity = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+
+                    // Right message
+                    TempData["Success"] = String.Format("Kontot {0} har skapats", model.Name);
 
                     return RedirectToAction("Index", "Forecast");
                 }
@@ -147,6 +162,7 @@ namespace Weather.App.Controllers
                 return RedirectToAction("Index", "Forecast");
             }
 
+            // Sets callback url for Google login service
             var properties = new AuthenticationProperties
             {
                 RedirectUri = Url.Action("GoogleLoginCallback", new { returnUrl = returnUrl })
@@ -155,7 +171,11 @@ namespace Weather.App.Controllers
             return new HttpUnauthorizedResult();
         }
 
-        // Callback method for google login
+        /// <summary>
+        /// Callback method for Google login service
+        /// </summary>
+        /// <param name="returnUrl">Url to return to after login</param>
+        /// <returns>RedirectToAction result</returns>
         public ActionResult GoogleLoginCallback(string returnUrl = "~/")
         {
             ExternalLoginInfo loginInfo = AuthenticationManager.GetExternalLoginInfo();
@@ -188,10 +208,15 @@ namespace Weather.App.Controllers
             identity.AddClaims(loginInfo.ExternalIdentity.Claims);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
+            // Right message
             TempData["Success"] = String.Format("Användaren {0} är inloggad", user.UserName);
             return Redirect(returnUrl);
         }
 
+        /// <summary>
+        /// Private helper method to display error messages
+        /// </summary>
+        /// <param name="result"></param>
         private void AddErrorsFromResult(IdentityResult result)
         {
             foreach (string error in result.Errors)

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Weather.Domain;
 using Weather.Domain.Entities;
 
 namespace Weather.App.ViewModels

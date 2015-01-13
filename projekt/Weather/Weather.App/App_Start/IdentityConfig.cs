@@ -5,6 +5,9 @@ using Owin;
 
 namespace Weather.App
 {
+    /// <summary>
+    /// Configures Identity
+    /// </summary>
     public class IdentityConfig
     {
         public void Configuration(IAppBuilder app)

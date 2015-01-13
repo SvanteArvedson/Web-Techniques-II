@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 namespace Weather.Domain.Validation
 {
     /// <summary>
-    /// Class for validating objects before saving them in database
+    /// Class for validating database objects before saving them in database.
+    /// Validates with DataAnnotations.
     /// </summary>
     public class DataAnnotationValidator :IDataAnnotationValidator
     {

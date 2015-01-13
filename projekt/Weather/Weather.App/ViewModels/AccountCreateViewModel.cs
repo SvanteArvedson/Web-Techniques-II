@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Weather.App.ViewModels
 {
+    /// <summary>
+    /// Properties for Create New Account form
+    /// </summary>
     public class AccountCreateViewModel
     {
         [Required(ErrorMessage = "Ange ett användarnamn")]

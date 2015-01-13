@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Weather.Domain.Entities
 {
+    /// <summary>
+    /// Place form GeoNames
+    /// </summary>
     public class Place
     {
         [Key]

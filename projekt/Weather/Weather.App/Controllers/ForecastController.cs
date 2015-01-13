@@ -9,11 +9,21 @@ using Weather.Domain.Entities;
 
 namespace Weather.App.Controllers
 {
+    /// <summary>
+    /// Controller methods for forecast functionality
+    /// </summary>
     [OutputCache(Duration = 0)]
     public class ForecastController : Controller
     {
+        /// <summary>
+        /// An instance of Weather.Domain.WeatherService
+        /// </summary>
         private IWeatherService _weatherFacade;
 
+        /// <summary>
+        /// Constructor, Ninject injects an IWeatherService instance
+        /// </summary>
+        /// <param name="weatherFacade">Instance of IWeatherService</param>
         public ForecastController(IWeatherService weatherFacade)
         {
             _weatherFacade = weatherFacade;
@@ -33,6 +43,7 @@ namespace Weather.App.Controllers
                 ViewBag.Search = search;
                 List<Place> places = _weatherFacade.SearchPlace(search).ToList();
                 ForecastSearchViewModel model = null;
+                // If zero, one or more hits
                 switch (places.Count)
                 {
                     case 0:
@@ -58,6 +69,7 @@ namespace Weather.App.Controllers
 
             Place place = _weatherFacade.GetWeatherForecast(region, name);
 
+            // If place don't exist
             if (place.Forecasts.Count == 0)
             {
                 return new HttpNotFoundResult();

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Weather.Domain;
 using Weather.Domain.Entities;
 
 namespace Weather.App.ViewModels

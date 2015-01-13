@@ -2,6 +2,9 @@
 
 namespace Weather.Domain.Entities
 {
+    /// <summary>
+    /// Users favorite places
+    /// </summary>
     public class FavouritePlace
     {
         [Key]

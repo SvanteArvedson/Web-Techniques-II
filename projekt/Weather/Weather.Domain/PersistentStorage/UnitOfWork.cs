@@ -7,7 +7,7 @@ using Weather.Domain.Entities;
 namespace Weather.Domain.PersistentStorage
 {
     /// <summary>
-    /// Helper class to make sure only one context object exists
+    /// Make sure all repositories share the same context object.
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
@@ -20,26 +20,41 @@ namespace Weather.Domain.PersistentStorage
 
         private bool _dispose = false;
 
+        /// <summary>
+        /// Returns a repository for Search table
+        /// </summary>
         public IRepository<Search> SearchRepository
         {
             get { return _searchRepository ?? (_searchRepository = new Repository<Search>(_context)); }
         }
 
+        /// <summary>
+        /// Returns a repository for Place table
+        /// </summary>
         public IRepository<Place> PlaceRepository
         {
             get { return _placeRepository ?? (_placeRepository = new Repository<Place>(_context)); }
         }
 
+        /// <summary>
+        /// Returns a repository for Forecast table
+        /// </summary>
         public IRepository<Forecast> ForecastRepository
         {
             get { return _forecastRepository ?? (_forecastRepository = new Repository<Forecast>(_context)); }
         }
 
+        /// <summary>
+        /// Returns a repository for FavoutitePlace table
+        /// </summary>
         public IRepository<FavouritePlace> FavouritePlaceRepository
         {
             get { return _favouritePlaceRepository ?? (_favouritePlaceRepository = new Repository<FavouritePlace>(_context)); }
         }
 
+        /// <summary>
+        /// Returns a repository for User table
+        /// </summary>
         public UserManager<User> UserManager
         {
             get { return _userManager ?? (_userManager = new UserManager<User>(new UserStore<User>(_context))); }
@@ -71,6 +86,10 @@ namespace Weather.Domain.PersistentStorage
 
         private static UnitOfWork _unitOfWorkInstance;
 
+        /// <summary>
+        /// Singelton pattern. Makes sure that only one UnitOfWork object exists.
+        /// </summary>
+        /// <returns></returns>
         public static UnitOfWork getInstance()
         {
             return _unitOfWorkInstance ?? (_unitOfWorkInstance = new UnitOfWork());
