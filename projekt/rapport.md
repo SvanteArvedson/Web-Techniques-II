@@ -11,7 +11,7 @@ Det finns flera andra liknande applikationer och jag har låtit mig inspireras a
 dessa exempelvis vad gäller design.
 
 ##Applikationsschema
-Ett schema över applikationen finns här: [Schema-applikation](/Doc/Schema-applikation.png)
+Ett schema över applikationen finns här: [Schema-applikation](https://github.com/ba222ec/IDV449_ba222ec/blob/master/projekt/Doc/Schema-applikation.png)
 
 ##Server
 Serverkoden är skriven med ramverket *ASP.NET MVC 5* tillsammans med ramver inom ASP.NET 
