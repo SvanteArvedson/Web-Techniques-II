@@ -6,7 +6,7 @@ en väderapplikation där man kan se väderleksprognoser för platser i Sverige.
 
 I mappen *Weather* finns källkoden och i mappen *Doc* finns dokumentationen.
 
-Slutrapporten finns i det här repositoriet på samma plats som README-filen.
+Slutrapporten finns i det här repositoriet på samma plats som README-filen: [Slutrapport](rapport.md)
 
 Demonstrationsvideon kan man se här: [http://youtu.be/dC35cwf_Bp8](http://youtu.be/dC35cwf_Bp8)
 
